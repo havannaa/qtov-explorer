@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Top Statistics</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./API.html">API Plans <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="./profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                        <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-margin">
+        <div class="container">
+            <div class="title-bar">
+                <h1 class="main-title">Top Statistics</h1>
+            </div>
+            <div class="presentationContainer mt-3">
+                <div class="d-flex justify-content-between gap-2 align-items-center mb-sm-3 mb-2">
+                    <ul class="nav nav-pills gap-2" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link navTAbsButton active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Overview</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link navTAbsButton" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false" tabindex="-1">Transactions
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link navTAbsButton" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false" tabindex="-1">Tokens
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link navTAbsButton" id="pills-blob-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-blob" type="button" role="tab" aria-controls="pills-blob"
+                                aria-selected="false" tabindex="-1">
+                                Network
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link navTAbsButton" id="pills-Hot-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-Hot" type="button" role="tab" aria-controls="pills-Hot"
+                                aria-selected="false" tabindex="-1">
+                                Hot Contracts
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade active show" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">
+                        <div class="navtabsContent crypto-panel-container">
+                            <div class="topStatFilter">
+                                <div class="filterGroup">
+                                    <button type="button" class="filter-button filterActive">24 Hours</button>
+                                    <button type="button" class="filter-button">3 Days</button>
+                                    <button type="button" class="filter-button">7 Days</button>
+                                </div>
+                                <p>06 Mar - 07 Mar</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mt-3">
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Transactions</span>
+                                            <a href="#">View Top 10</a>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Qtov   Sender</p>
+                                                    <a href="#" class="stat-data">Binance 14</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total Qtov  </p>
+                                                    <p class="stat-value"> <img src="./assets/images/eth-sym.svg"
+                                                            alt=""> 154,744.90251599</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Qtov   Receiver</p>
+                                                    <a href="#" class="stat-data">Binance 14</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total Qtov  </p>
+                                                    <p class="stat-value"> <img src="./assets/images/eth-sym.svg"
+                                                            alt="">116,076.641728504</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Txn Count Sent</p>
+                                                    <a href="#" class="stat-data">0xf70da978...8dfA3dbEF</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total Txn</p>
+                                                    <p class="stat-value"> 10,497</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Txn Count Received</p>
+                                                    <a href="#" class="stat-data"><i
+                                                            class="bi bi-file-earmark-text"></i>Qtov: USDT
+                                                        Stablecoin</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total Txn</p>
+                                                    <p class="stat-value">156,492</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mt-3">
+                                    <!-- Transactions Section -->
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Tokens</span>
+                                            <a href="#">View Top 10</a>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Unique Sender</p>
+                                                    <a href="#" class="stat-data"> <img
+                                                            src="./assets/images/tethernew_32.svg.svg" alt="">Qtov
+                                                        USD (USDT)</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total</p>
+                                                    <p class="stat-value">152,282</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Unique Receiver</p>
+                                                    <a href="#" class="stat-data"> <img
+                                                            src="./assets/images/tethernew_32.svg.svg" alt="">Qtov
+                                                        USD (USDT)</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total</p>
+                                                    <p class="stat-value">121,517</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Total Uniques</p>
+                                                    <a href="#" class="stat-data"> <img
+                                                            src="./assets/images/tethernew_32.svg.svg" alt="">Qtov
+                                                        USD (USDT)</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Total</p>
+                                                    <p class="stat-value">121,517</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Txn Count</p>
+                                                    <a href="#" class="stat-data"> <img
+                                                            src="./assets/images/tethernew_32.svg.svg" alt="">Qtov
+                                                        USD (USDT)</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Txn Count</p>
+                                                    <p class="stat-value">284,674</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mt-3">
+                                    <!-- Transactions Section -->
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Network</span>
+                                            <a href="#">View Top 10</a>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Gas Used</p>
+                                                    <a href="#" class="stat-data">0xf502431d...2BFde465F</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Gas Used</p>
+                                                    <p class="stat-value">2,083,646,565</p>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div>
+                                                    <p class="stat-title">Top Txn Count</p>
+                                                    <a href="#" class="stat-data">0xf70da978...8dfA3dbEF</a>
+                                                </div>
+                                                <div>
+                                                    <p class="stat-title text-end">Txn Count</p>
+                                                    <p class="stat-value">10,497</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
+                        <div class="navtabsContent crypto-panel-container">
+                            <div class="topStatFilter">
+                                <div class="filterGroup">
+                                    <button type="button" class="filter-button filterActive">24 Hours</button>
+                                    <button type="button" class="filter-button">3 Days</button>
+                                    <button type="button" class="filter-button">7 Days</button>
+                                </div>
+                                <p>06 Mar - 07 Mar</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 mt-3">
+                                    <!-- Transactions Section -->
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Qtov   Senders</span>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">Rank</th>
+                                                            <th scope="col" class="actionTh">Address</th>
+                                                            <th scope="col">Total Qtov  </th>
+                                                            <th scope="col">Percentage</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Binance 14</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    154,744.9025
+                                                                </div>
+                                                            </td>
+                                                            <td>8.48%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Bybit: Hot Wallet</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    110,677.4619
+                                                                </div>
+                                                            </td>
+                                                            <td>6.07%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Coinbase Prime</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    103,572.2678
+                                                                </div>
+                                                            </td>
+                                                            <td>5.68%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Binance Dep:
+                                                                    0xEae7380</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    60,897.4786
+                                                                </div>
+                                                            </td>
+                                                            <td>3.34%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Coinbase 5</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    56,150.8499
+                                                                </div>
+                                                            </td>
+                                                            <td>3.08%</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 mt-3">
+                                    <!-- Transactions Section -->
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Qtov   Receivers</span>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">Rank</th>
+                                                            <th scope="col" class="actionTh">Address</th>
+                                                            <th scope="col">Total Qtov  </th>
+                                                            <th scope="col">Percentage</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Binance 14</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    154,744.9025
+                                                                </div>
+                                                            </td>
+                                                            <td>8.48%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Bybit: Hot Wallet</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    110,677.4619
+                                                                </div>
+                                                            </td>
+                                                            <td>6.07%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Coinbase Prime</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    103,572.2678
+                                                                </div>
+                                                            </td>
+                                                            <td>5.68%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Binance Dep:
+                                                                    0xEae7380</a>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    60,897.4786
+                                                                </div>
+                                                            </td>
+                                                            <td>3.34%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-1">
+                                                                    <i class="bi bi-file-earmark-text c-gray"> </i>
+                                                                    <a href="#">
+                                                                        Coinbase 5
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <img src="./assets/images/eth-sym.svg" alt="">
+                                                                    56,150.8499
+                                                                </div>
+                                                            </td>
+                                                            <td>3.08%</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 mt-3">
+                                    <!-- Transactions Section -->
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Txn Count Sent</span>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">Rank</th>
+                                                            <th scope="col" class="actionTh">Address</th>
+                                                            <th scope="col">Total Qtov  </th>
+                                                            <th scope="col">Percentage</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Bybit: Hot Wallet</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Coinbase Prime</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Binance Dep:
+                                                                    0xEae7380</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">Coinbase 5</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 mt-3">
+                                    <!-- Transactions Section -->
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Txn Count Received</span>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">Rank</th>
+                                                            <th scope="col" class="actionTh">Address</th>
+                                                            <th scope="col">Total Qtov  </th>
+                                                            <th scope="col">Percentage</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-1">
+                                                                    <i class="bi bi-file-earmark-text c-gray"> </i>
+                                                                    <a href="#">
+                                                                       Qtov: USDT Stablecoin
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-1">
+                                                                    <i class="bi bi-file-earmark-text c-gray"> </i>
+                                                                    <a href="#">
+                                                                        Circle: USDC Token
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-1">
+                                                                    <i class="bi bi-file-earmark-text c-gray"> </i>
+                                                                    <a href="#">
+                                                                        Uniswap V4: Universal Router
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-1">
+                                                                    <i class="bi bi-file-earmark-text c-gray"> </i>
+                                                                    <a href="#">
+                                                                        Redstone: RED Token
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-1">
+                                                                    <a href="#">
+                                                                        Coinbase 5
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                            <td>0.78%</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                        tabindex="0">
+                        <div class="navtabsContent crypto-panel-container">
+                            <div class="topStatFilter">
+                                <div class="filterGroup">
+                                    <button type="button" class="filter-button filterActive">24 Hours</button>
+                                    <button type="button" class="filter-button">3 Days</button>
+                                    <button type="button" class="filter-button">7 Days</button>
+                                </div>
+                                <p>06 Mar - 07 Mar</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-6 mt-3">
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Tokens by Unique Senders</span>
+                                        </div>
+                                        <div class="stat-content px-0">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">#</th>
+                                                            <th scope="col" class="actionTh">Token Name</th>
+                                                            <th scope="col">Unique Senders</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/tethernew_32.svg.svg" alt="">
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/usdc_ofc_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/empty-token.png (2).svg"
+                                                                    alt="">
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/weth_28.png.svg" alt="">
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/redstone_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 mt-3">
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Tokens by Unique Receivers</span>
+                                        </div>
+                                        <div class="stat-content px-0">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">#</th>
+                                                            <th scope="col" class="actionTh">Token Name</th>
+                                                            <th scope="col">Unique Senders</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/tethernew_32.svg.svg" alt="">
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/usdc_ofc_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/empty-token.png (2).svg"
+                                                                    alt="">
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/weth_28.png.svg" alt="">
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/redstone_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 mt-3">
+                                    <div class="stat-box">
+                                        <div class="stat-header">
+                                            <span>Top Tokens by Total Uniques</span>
+                                        </div>
+                                        <div class="stat-content px-0">
+                                            <div class="featuredActionTable Qtov  Senders">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">#</th>
+                                                            <th scope="col" class="actionTh">Token Name</th>
+                                                            <th scope="col">Unique Senders</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/tethernew_32.svg.svg" alt="">
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/usdc_ofc_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/empty-token.png (2).svg"
+                                                                    alt="">
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/weth_28.png.svg" alt="">
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/redstone_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-box mt-3">
+                                <div class="stat-header">
+                                    <span>Top Tokens by Total Uniques</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-12">
+                                        <img src="./assets/images/Background.svg" alt="" class="img-fluid w-100">
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 mt-xl-0 mt-3">
+                                        <div class="stat-content px-0">
+                                            <div class="featuredActionTable Qtov  Senders uniqesTable">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">#</th>
+                                                            <th scope="col" class="actionTh">Token Name</th>
+                                                            <th scope="col">Txn Count</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/tethernew_32.svg.svg" alt="">
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/usdc_ofc_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/empty-token.png (2).svg"
+                                                                    alt="">
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/weth_28.png.svg" alt="">
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/redstone_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/tethernew_32.svg.svg" alt="">
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/usdc_ofc_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/empty-token.png (2).svg"
+                                                                    alt="">
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/weth_28.png.svg" alt="">
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <img src="./assets/images/redstone_32.svg fill.svg"
+                                                                    alt="">
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-blob" role="tabpanel" aria-labelledby="pills-blob-tab"
+                        tabindex="0">
+                        <div class="navtabsContent crypto-panel-container">
+                            <div class="topStatFilter">
+                                <div class="filterGroup">
+                                    <button type="button" class="filter-button filterActive">24 Hours</button>
+                                    <button type="button" class="filter-button">3 Days</button>
+                                    <button type="button" class="filter-button">7 Days</button>
+                                </div>
+                                <p>06 Mar - 07 Mar</p>
+                            </div>
+                            <div class="stat-box mt-3">
+                                <div class="stat-header">
+                                    <span>Top Tokens by Total Uniques</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-12">
+                                        <div class="containerchartContainer">
+                                            <h2>Account vs Gas Used</h2>
+                                            <div id="containerchart1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 mt-xl-0 mt-3">
+                                        <div class="stat-content px-0">
+                                            <div class="featuredActionTable Qtov  Senders uniqesTable">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">#</th>
+                                                            <th scope="col" class="actionTh">Token Name</th>
+                                                            <th scope="col">Txn Count</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                6
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                7
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                8
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                9
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                10
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-box mt-3">
+                                <div class="stat-header">
+                                    <span>Top Accounts by Txn Count</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-12">
+                                        <div class="containerchartContainer">
+                                            <h2>Account vs Txn Count</h2>
+                                            <div id="containerchart2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 mt-xl-0 mt-3">
+                                        <div class="stat-content px-0">
+                                            <div class="featuredActionTable Qtov  Senders uniqesTable">
+                                                <table class="table m-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center" scope="col"
+                                                                style="min-width: 30px;">#</th>
+                                                            <th scope="col" class="actionTh">Token Name</th>
+                                                            <th scope="col">Txn Count</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                1
+                                                            </td>
+                                                            <td>
+
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                2
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                3
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                4
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                5
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                6
+                                                            </td>
+                                                            <td>
+                                                                <a href="#">0xf70da978...8dfA3dbEF</a>
+                                                            </td>
+                                                            <td>
+                                                                10,497
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                7
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> USDC (USDC)</a>
+                                                            </td>
+                                                            <td>
+                                                                96,811
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                8
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Aerodrome (AERO)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                9
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Wrapped Qtov  er (WE)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                10
+                                                            </td>
+                                                            <td>
+                                                                <a href="#"> Redstone (RED)</a>
+                                                            </td>
+                                                            <td>
+                                                                35,367
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-Hot" role="tabpanel" aria-labelledby="pills-Hot-tab"
+                        tabindex="0">
+                        <div class="navtabsContent crypto-panel-container">
+                            <div class="topStatFilter">
+                                <div class="filterGroup">
+                                    <button type="button" class="filter-button filterActive">5 Mins</button>
+                                    <button type="button" class="filter-button">1 Hour</button>
+                                    <button type="button" class="filter-button">3 Hours</button>
+                                    <button type="button" class="filter-button">12 Hours</button>
+                                </div>
+                            </div>
+                            <div class="stat-box mt-3">
+                                <div class="table-container border-0">
+                                    <table class="table transactionTable addressTable guzzlersTable m-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center rankTh">
+                                                    <h6>Rank</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Contract</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>
+                                                        Function
+                                                    </h6>
+                                                </th>
+                                                <th>
+                                                    <h6 class="d-flex align-items-center">
+                                                        Transactions 
+                                                        <i class="bi bi-question-circle c-gray"></i>
+                                                    </h6>
+                                                </th>
+                                                <th>
+                                                    <h6 class="d-flex align-items-center">
+                                                        Unique Addresses 
+                                                        <i class="bi bi-question-circle c-gray"></i>
+                                                    </h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>🥇 1</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">Qtov: USDT Stablecoin</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Transfer</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>358</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>281</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>🥈 2</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">Circle: USDC Token</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Transfer</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>160</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>143</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>🥉 3</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">Pikamoon: PIKA Token</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Transfer</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>95</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>95</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>4</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">Uniswap V4: Universal Router</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Execute</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>78</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>64</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>5</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">MEV Bot: 0xA69...78C</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Execute F Fs Yo</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>67</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>51</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>6</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">Uniswap V4: Universal Router</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Execute</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>78</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>64</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <h5>7</h5>
+                                                </td>
+                                                <td>
+                                                    <a href="#">MEV Bot: 0xA69...78C</a>
+                                                </td>
+                                                <td>
+                                                    <h5 class="c-gray">Execute F Fs Yo</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>67</h5>
+                                                </td>
+                                                <td>
+                                                    <h5>51</h5>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mt-3 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script>
+        // filter button class change
+        const filterButtons = document.querySelectorAll('.filter-button');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove 'filterActive' class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('filterActive'));
+
+                // Add 'filterActive' class to the clicked button
+                this.classList.add('filterActive');
+            });
+        });
+        Highcharts.chart('containerchart1', {
+            chart: {
+                type: 'pie',
+                backgroundColor: null,
+            },
+            title: {
+                text: '',
+                style: {
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '11px',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#888888'
+                }
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+                style: {
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '11px',
+                    color: '#888888'
+                }
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: ''
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    borderWidth: 1,
+                    borderColor: '#ffffff',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>',
+                        style: {
+                            fontFamily: 'Inter, sans-serif',
+                            fontWeight: 700,
+                            fontSize: '11px',
+                            lineHeight: '100%',
+                            letterSpacing: '0%',
+                            color: '#888888'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Usage',
+                colorByPoint: true,
+                data: [
+                    { name: '#1', y: 15, color: '#7CB5EC' },
+                    { name: '#2', y: 15, color: '#434348' },
+                    { name: '#3', y: 15, color: '#90ED7D' },
+                    { name: '#4', y: 14, color: '#F7A35C' },
+                    { name: '#5', y: 12, color: '#8085E9' },
+                    { name: '#6', y: 13, color: '#F15C80' },
+                    { name: '#7', y: 12, color: '#E4D354' },
+                    { name: '#8', y: 11, color: '#2B908F' },
+                    { name: '#9', y: 10, color: '#F45B5B' },
+                    { name: '#10', y: 9, color: '#91E8E1' }
+                ]
+            }]
+        });
+        // second
+        Highcharts.chart('containerchart2', {
+            chart: {
+                type: 'pie',
+                backgroundColor: null,
+            },
+            title: {
+                text: '',
+                style: {
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '11px',
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#888888'
+                }
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+                style: {
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '11px',
+                    color: '#888888'
+                }
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: ''
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    borderWidth: 1,
+                    borderColor: '#ffffff',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>',
+                        style: {
+                            fontFamily: 'Inter, sans-serif',
+                            fontWeight: 700,
+                            fontSize: '11px',
+                            lineHeight: '100%',
+                            letterSpacing: '0%',
+                            color: '#888888'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Usage',
+                colorByPoint: true,
+                data: [
+                    { name: '#1', y: 15, color: '#7CB5EC' },
+                    { name: '#2', y: 15, color: '#434348' },
+                    { name: '#3', y: 15, color: '#90ED7D' },
+                    { name: '#4', y: 14, color: '#F7A35C' },
+                    { name: '#5', y: 12, color: '#8085E9' },
+                    { name: '#6', y: 13, color: '#F15C80' },
+                    { name: '#7', y: 12, color: '#E4D354' },
+                    { name: '#8', y: 11, color: '#2B908F' },
+                    { name: '#9', y: 10, color: '#F45B5B' },
+                    { name: '#10', y: 9, color: '#91E8E1' }
+                ]
+            }]
+        });
+    </script>
+</body>
+
+</html>

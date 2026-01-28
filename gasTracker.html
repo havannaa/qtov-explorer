@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Gas Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+<!-- Header -->
+<header class="main-header">
+    <nav class="navbar navbar-expand-lg navbar-main">
+        <div class="container position-relative">
+            <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Blockchain <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                    Transactions <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="blobs.html">View Blobs
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="uncles.html">Uncles <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tokens <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                            class="c-gray">(QRC-20)</span></span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                            class="c-gray">(QRC-20)</span></span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            NFTs <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Resources <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Knowledge Base <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Developers <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                    Search
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                    Transaction
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./API.html">API Plans <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">API Documentation <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" style="position: unset;">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            More <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu moreDropdown">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="toolsServices h-100" style="background-color: #151515;">
+                                        <h1>Tools & Services</h1>
+                                        <p>Discover more of Qtov tools and services in one place.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="toolsServices">
+                                        <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                Decoder <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                Converter <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="toolsServices">
+                                        <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                        <li>
+                                            <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="toolsServices">
+                                        <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                        <li>
+                                            <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                Singnature <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Advanced Filter <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="navButtons">
+                    <div class="borderLine"></div>
+                    <li class="nav-item dropdown" style="list-style: none;">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-circle-user me-1"></i>
+                            Hussam <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./profile/accountOverview.html">
+                                    Profile Info
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                    <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <!-- hero section -->
+    <div class="home-hero-section hero-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12">
+                    <div class="heroContent gasTrackerContent">
+                        <h1 class="text-center">Qtov Blockchain Explorer Gas Tracker <i class="bi bi-fuel-pump-fill gasPumpIcon"></i>
+                        </h1>
+                    </div>
+                    <img src="./assets/images/gas-shadow.png" alt="" class="shadowImg">
+                </div>
+                <div class="col-lg-5 col-md-12 p-0 d-flex justify-content-center justify-content-lg-end">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="./assets/images/3d.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="averageContent">
+        <div class="container">
+            <h6 class="updateTitle">Next update in <span>11s</span></h6>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mt-3">
+                    <div class="averageCard">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <img src="./assets/images/smile3.png.svg" alt="">
+                            <h1>Low</h1>
+                        </div>
+                        <h2 class="low-avg">0.865 QWEI</h2>
+                        <p>Base: 0.865 | Priority: 0</p>
+                        <p>$0.04 | ~ 30 secs</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-3">
+                    <div class="averageCard">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <img src="./assets/images/smile2.png.svg" alt="">
+                            <h1>Average</h1>
+                        </div>
+                        <h2 class="average-avg">0.944 QWEI</h2>
+                        <p>Base: 0.865 | Priority: 0.079</p>
+                        <p>$0.04 | ~ 30 secs</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-3">
+                    <div class="averageCard">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <img src="./assets/images/smile1.png.svg" alt="">
+                            <h1>High</h1>
+                        </div>
+                        <h2 class="high-avg">0.952 QWEI</h2>
+                        <p>Base: 0.865 | Priority: 0.087</p>
+                        <p>$0.04 | ~ 30 secs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-12 mt-3">
+                    <div class="additionalInfoCard">
+                        <h2>Additional Info</h2>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-12 mt-2 blockCol">
+                                <div class="additionalBlock">
+                                    <h3>Last Block</h3>
+                                    <p>21970247</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-12 mt-2 blockCol">
+                                <div class="additionalBlock">
+                                    <h3>Pending Queue</h3>
+                                    <p>70648</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-12 mt-2 blockCol">
+                                <div class="additionalBlock">
+                                    <h3>Avg Block Size</h3>
+                                    <p>178</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-12 mt-2 blockCol">
+                                <div class="additionalBlock">
+                                    <h3>Avg. Utilization</h3>
+                                    <p>54.84%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="lastRefreshed">Last Refreshed: Tue, 04 Mar 2025 01:29:46 UTC</p>
+                        <h2 class="mt-4 mb-2">Featured Actions</h2>
+                        <div class="featuredActionTable">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="actionTh">Action</th>
+                                        <th scope="col">Low</th>
+                                        <th scope="col">Average</th>
+                                        <th scope="col">High</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="bi bi-question-circle" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Swap"></i>
+                                                Swap
+                                            </div>
+                                        </td>
+                                        <td>$0.61</td>
+                                        <td>$0.61</td>
+                                        <td>$0.67</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="bi bi-question-circle" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="NFT Sale"></i>
+                                                NFT Sale
+                                            </div>
+                                        </td>
+                                        <td>$1.03</td>
+                                        <td>$1.03</td>
+                                        <td>$1.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="bi bi-question-circle" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Bridging"></i>
+                                                Bridging
+                                            </div>
+                                        </td>
+                                        <td>$0.20</td>
+                                        <td>$0.20</td>
+                                        <td>$0.22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="bi bi-question-circle" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Borrowing"></i>
+                                                Borrowing
+                                            </div>
+                                        </td>
+                                        <td>$0.52</td>
+                                        <td>$0.52</td>
+                                        <td>$0.57</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="bi bi-question-circle" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Custom Gas Limit"></i>
+                                                <span class="customGasLimitText">
+                                                    Custom Gas Limit
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 mt-3">
+                    <div class="additionalInfoCard">
+                        <div class="heatmap-container">
+                            <ul class="nav nav-pills gap-2 mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link navTAbsButton active" id="pills-home-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                                        aria-controls="pills-home" aria-selected="true">Gas Price Heatmap</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link navTAbsButton" id="pills-profile-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-profile" type="button" role="tab"
+                                        aria-controls="pills-profile" aria-selected="false">Gas Price
+                                    </button>
+                                </li>
+                            </ul>  
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                    aria-labelledby="pills-home-tab" tabindex="0">
+                                    <h2>Gas Price Heatmap</h2>
+                                    <div id="heatmap"></div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                    aria-labelledby="pills-profile-tab" tabindex="0">
+                                    <h2>Historical Gas Oracle Prices</h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="presentationContainer">
+            <div class="d-flex justify-content-between gap-2 align-items-center mb-sm-3 mb-2">
+                <ul class="nav nav-pills gap-2" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link navTAbsButton gasGuzzlers active" id="pills-guzzlers-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-guzzlers" type="button" role="tab" aria-controls="pills-guzzlers"
+                            aria-selected="true"><i class="bi bi-fuel-pump-fill"></i> Gas Guzzlers</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link navTAbsButton gasGuzzlers" id="pills-Spenders-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-Spenders" type="button" role="tab" aria-controls="pills-Spenders"
+                            aria-selected="false"><i class="bi bi-fuel-pump-fill"></i> Gas Spenders
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link navTAbsButton gasGuzzlers" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false"><i class="bi bi-list"></i> Historical Gas Oracle Prices
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link navTAbsButton gasGuzzlers" id="pills-blob-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-blob" type="button" role="tab" aria-controls="pills-blob"
+                            aria-selected="false">
+                            <i class="bi bi-list"></i> Cost of Transaction Actions
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-guzzlers" role="tabpanel" aria-labelledby="pills-guzzlers-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <div class="moreThanTransactionHeader">
+                            <div class="foundTitle d-flex gap-1">
+                                <img src="./assets/images/Oldest First.svg" alt="">
+                                <h3>Top 50 Gas Guzzlers <span>(Contracts / Accounts that consume a lot of Gas)</span></h3>
+                            </div>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button type="button" class="downloadPageBtn" style="background-color: #222222;">
+                                    <img src="./assets/images/pie-chart.svg" alt="">
+                                    Dashboard
+                                </button>
+                                <span class="tradePoolSpan">Last updated at Block <a href="#">21970199</a></span>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="table transactionTable addressTable guzzlersTable m-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center rankTh">
+                                           <h6>Rank</h6>
+                                        </th>
+                                        <th>
+                                            <h6>Address</h6>
+                                        </th>
+                                        <th>
+                                            <h6 class="d-flex align-items-center">
+                                                Fees Last 3hrs
+                                                <div class="sort-icon sortFees">
+                                                    <i class="bi bi-caret-up-fill caretUp"></i>
+                                                    <i class="bi bi-caret-down-fill caretDown"></i>
+                                                </div>
+                                            </h6>
+                                        </th>
+                                        <th>
+                                            <h6 class="d-flex align-items-center">
+                                                % Used 3hrs
+                                                <div class="sort-icon sortFees">
+                                                    <i class="bi bi-caret-up-fill caretUp"></i>
+                                                    <i class="bi bi-caret-down-fill caretDown"></i>
+                                                </div>
+                                            </h6>
+                                        </th>
+                                        <th>
+                                            <h6 class="d-flex align-items-center">
+                                                Fees Last 24hrs
+                                                <div class="sort-icon sortFees">
+                                                    <i class="bi bi-caret-up-fill caretUp"></i>
+                                                    <i class="bi bi-caret-down-fill caretDown"></i>
+                                                </div>
+                                            </h6>
+                                        </th>
+                                        <th>
+                                            <h6 class="d-flex align-items-center">
+                                                % Used 24hrs
+                                                <div class="sort-icon sortFees">
+                                                    <i class="bi bi-caret-up-fill caretUp"></i>
+                                                    <i class="bi bi-caret-down-fill caretDown"></i>
+                                                </div>
+                                            </h6>
+                                        </th>
+                                        <th>
+                                            <h6>Analytics</h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>🥇 1</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">Qtov: USDT Stablecoin</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$4,317.06 <span class="c-gray">(2.05 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>6.43%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 55%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$52,408.70 <span class="c-gray">(24.87 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>6.56%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>🥈 2</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">Uniswap V4: Universal Router</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$4,586.37 <span class="c-gray">(2.18 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>4.64%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 45%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$39,653.06 <span class="c-gray">(18.82 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>3.93%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>🥉 3</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">Circle: USDC Token</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$2,045.82 <span class="c-gray">(0.97 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>3.45%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 35%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$23,544.13 <span class="c-gray">(11.17 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>3.11%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>4</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">jaredfromsubway: MEV Bot 2</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>2.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 25%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.17%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>5</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">jaredfromsubway: MEV Bot 2</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>2.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 75%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.17%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>6</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">Aggregation Router V5</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>8.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 90%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.33%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>7</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">jaredfromsubway: MEV Bot 2</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>2.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 25%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.17%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>8</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">jaredfromsubway: MEV Bot 2</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>2.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 75%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.17%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>9</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">Aggregation Router V5</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>8.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 90%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.33%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <h5>10</h5>
+                                        </td>
+                                        <td>
+                                            <div class="transactionHash">
+                                                <div class="d-flex gap-1 align-items-center">
+                                                    <img src="./assets/images/list.svg" alt="" width="16"
+                                                        style="width: 12px;">
+                                                    <a href="#" class="copyText">0x236B8F6c...A050CD2E4</a>
+                                                </div>
+                                                <i class="bi bi-copy copyIcon"></i>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$14,516.27 <span class="c-gray">(6.89 Qtov)</span></h5>
+                                        </td>
+                                        <td class="progressTd progressTd2">
+                                            <h5>2.96%</h5>
+                                            <div class="progress progressBackLayer" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 75%"></div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>$94,978.44  <span class="c-gray">(45.08 Qtov)</span></h5>
+                                        </td>
+                                        <td>
+                                            <h5>1.15%</h5>
+                                        </td>
+                                        <td>
+                                            <i class="bi bi-graph-up biGraph"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Spenders" role="tabpanel" aria-labelledby="pills-Spenders-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3"></div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-blob" role="tabpanel" aria-labelledby="pills-blob-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="instructionContent">
+            <img src="./assets/images/light.svg" alt="">
+            <p>Gas refers to the fee required to successfully conduct a transaction on the Quantova blockchain. Gas fees are paid in Qtover (ETH) and denominated in QWEI. Learn more about Gas in our 
+                <span><a href="#">Knowledge Base</a></span>.
+            </p>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+    <script src="./assets/js/heatmap.js"></script>
+    <script>
+        // Initialize tooltips
+        document.addEventListener("DOMContentLoaded", function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        });
+// Copy to clipboard functionality
+document.addEventListener("DOMContentLoaded", function () {
+            const copyIcons = document.querySelectorAll(".copyIcon");
+            copyIcons.forEach(icon => {
+                icon.addEventListener("click", function () {
+                    const parentDiv = this.closest(".transactionHash");
+                    const textElement = parentDiv.querySelector(".copyText");
+
+                    if (textElement) {
+                        const textToCopy = textElement.textContent.trim();
+                        console.log("Copying:", textToCopy); // Debug log
+
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            console.log("Copied Successfully!"); // Debug log
+
+                            this.classList.remove("bi-copy");
+                            this.classList.add("bi-check2");
+                            this.style.color = "#2583D5"; // Green color
+
+                            setTimeout(() => {
+                                this.classList.remove("bi-check2");
+                                this.classList.add("bi-copy");
+                                this.style.color = ""; // Reset color
+                            }, 2000);
+                        }).catch(err => {
+                            console.error("Copy failed", err);
+                        });
+                    } else {
+                        console.error("Text element not found!");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

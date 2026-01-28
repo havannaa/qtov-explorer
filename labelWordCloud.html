@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Label Word Cloud</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./API.html">API Plans <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="./profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                        <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-margin">
+        <div class="container">
+            <div class="title-bar">
+                <h1 class="main-title">Label Word Cloud</h1>
+            </div>
+            <div class="sponsoredTitle">
+                <h6>Sponsored:</h6>
+                <img src="./assets/images/bestwallet.svg" alt="">
+                <h6>Best Wallet: <span>NO KYC Crypto Wallet with FREE Airdrop! In Presale Now!</span> <a
+                        href="#">Download NOW!</a></h6>
+            </div>
+            <div class="word-cloud-container">
+                <h1 class="word-cloud-title">Explore & Navigate Qtov Label Word Cloud</h1>
+                <div class="worldCloudCont">
+                    <div id="word-cloud"></div>
+                    <!-- Tooltip for hover -->
+                    <div id="tooltip" class="tooltip"></div>
+                    <!-- Popup modal for click -->
+                    <div id="popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close">×</span>
+                            <h2 id="popup-title"></h2>
+                            <div id="popup-account-tags" class="tags">
+                                <h3>Account Tags</h3>
+                                <ul id="account-tags-list"></ul>
+                            </div>
+                            <div id="popup-token-tags" class="tags">
+                                <h3>Token Tags</h3>
+                                <ul id="token-tags-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="word-cloud-labels">
+                    <div class="custom-search-wrapper">
+                        <input type="text" class="custom-search-field" placeholder="Search Labels ">
+                        <div class="custom-search-icon">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search Icon">
+                        </div>
+                    </div>
+                    <div class="row mt-sm-4 mt-2">
+                        <!-- 0-Gas Sender -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">0-Gas Sender</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 0x Protocol -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">0x Protocol</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 0x Protocol Ecosystem -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">0x Protocol Ecosystem</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 0xSplits -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">0xSplits</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1inch -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">1inch</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1inch Network -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">1inch Network</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aave -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Aave</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aavegotchi -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Aavegotchi</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Abracadabra -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Abracadabra</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Across -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Across</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Across Protocol -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Across Protocol</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Across V2 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Across V2</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Across V3 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Across V3</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actively Validated Service -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Actively Validated Service</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Adventure Gold -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Adventure Gold</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agave -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Agave</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Agoric -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Agoric</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aidi Finance -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Aidi Finance</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AirSwap -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">AirSwap</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Akash Network -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Akash Network</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alchemix -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Alchemix</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alchemy -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Alchemy</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alephium -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Alephium</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Algorand -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Algorand</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alien Worlds -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Alien Worlds</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AllianceBlock -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">AllianceBlock</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AllSportsChain -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">AllSportsChain</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alpha Finance Lab -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Alpha Finance Lab</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alpha Venture DAO -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Alpha Venture DAO</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ampleforth -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Ampleforth</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ankr -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Ankr</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Antimatter -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Antimatter</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ApeCoin -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">ApeCoin</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- API3 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">API3</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ApolloX -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">ApolloX</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aptos -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Aptos</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aragon -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Aragon</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arbitrum -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Arbitrum</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ARC -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">ARC</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arweave -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Arweave</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AscendEX -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">AscendEX</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Astar -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Astar</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Astroport -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Astroport</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audius -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Audius</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Augur -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Augur</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aurora -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Aurora</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Avalanche -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Avalanche</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Axelar -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Axelar</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Axie Infinity -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Axie Infinity</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Azuki -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Azuki</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Badger DAO -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Badger DAO</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Balancer -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Balancer</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bancor -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Bancor</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BarnBridge -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BarnBridge</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Basic Attention Token -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Basic Attention Token</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BCH -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BCH</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BCMC -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BCMC</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beacon Chain -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Beacon Chain</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beefy Finance -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Beefy Finance</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bella Protocol -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Bella Protocol</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BendDAO -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BendDAO</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BENQI -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BENQI</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beta Finance -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Beta Finance</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Biconomy -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Biconomy</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Big Time -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Big Time</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Binance -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Binance</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Binance Smart Chain -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Binance Smart Chain</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BitDAO -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BitDAO</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bitget -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">Bitget</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BitKeep -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BitKeep</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BitMart -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BitMart</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BitTorrent -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BitTorrent</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                    <a href="#" class="tray-item">
+                                        <div class="eth-file"><i class="fab fa-ethereum faEth"></i></div> Tokens (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BlackPool -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                            <div class="menu-trigger">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="menu-label">BlackPool</div>
+                                    <span class="cloud-num">1</span>
+                                </div>
+                                <i class="bi bi-chevron-down icon-flip"></i>
+                                <div class="option-tray">
+                                    <a href="#" class="tray-item">
+                                        <div class="account-file"><i class="bi bi-file-earmark-text"></i></div> Accounts
+                                        (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov Blockchain Explorer © 1010 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+    <script src="https://unpkg.com/wordcloud@1.2.2/src/wordcloud2.js"></script>
+    <script>
+        // Word Cloud Data
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdowns = document.querySelectorAll(".menu-trigger");
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    // Close others
+                    dropdowns.forEach(d => {
+                        if (d !== dropdown) d.classList.remove("active");
+                    });
+                    dropdown.classList.toggle("active");
+                });
+            });
+
+            // Close when clicked outside
+            document.addEventListener("click", () => {
+                dropdowns.forEach(d => d.classList.remove("active"));
+            });
+        });
+        // Initialize tooltips
+        document.addEventListener("DOMContentLoaded", function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Full list of words with their weights
+            const wordList = [
+                ['DeFi', 10], ['Yield Farming', 10], ['Staking', 10], ['Token Sale', 10], ['Blockchain', 10],
+                ['Wallet', 10], ['DEX', 15], ['Smart Contract', 10], ['Liquidity', 20], ['NFT', 10],
+                ['ICO', 10], ['Governance', 10], ['Multichain', 10], ['Airdrop', 10], ['Oracle', 10],
+                ['Decentralized Web', 20], ['Social Networking', 10], ['Metaverse', 10], ['Charity', 10],
+                ['Bitget', 10], ['BitMart', 10], ['Gate.io', 10], ['Beacon Depositor', 10], ['Gold BitPro', 10],
+                ['EIGEN', 10], ['Lido', 10], ['SushiSwap', 10], ['Frax Finance', 10], ['Cross-Chain', 10],
+                ['The Graph', 10], ['Artificial Intelligence', 10], ['Trading', 10], ['Collectibles', 10],
+                ['Builder', 10], ['Vesting', 10], ['Safe', 10], ['SuperRare', 10], ['Layer 2', 10],
+                ['Bug Hunter', 10], ['Governance Token', 10], ['Liquidity Pool', 10], ['Kraken', 10],
+                ['Education', 10], ['Real World Assets', 10], ['Arbitrum', 10], ['Alchemy', 10],
+                ['Saddle Finance', 10], ['My Crypto Heroes', 10], ['Alchemix Nova', 10], ['Ribbon Finance', 10],
+                ['CoinW', 10], ['OMG Network', 10], ['Value Member', 10], ['Nitro', 10], ['Others', 10],
+                ['Capital', 10], ['Launchpad', 10], ['Insurance', 10], ['Hop Protocol', 10], ['Pass', 10],
+                ['Yearn Vault', 10], ['BuiltOnLiquid Builders', 10], ['MEV Bot', 10], ['Pancake DEX', 10],
+                ['OpAC', 10], ['Secret Free Token', 10], ['Gambling', 10], ['Market Placement', 10],
+                ['Finance', 10], ['Old Contract', 10], ['Take Action', 10], ['Cream Finance', 10],
+                ['Chainlink', 10], ['DAO', 10], ['AAVE', 10], ['Genesis Address', 10], ['Tornado Cash', 10],
+                ['Nexus Mutual', 10], ['Symbiotic', 10], ['Aura Finance', 10], ['Polygon', 10], ['Optimism', 10],
+                ['Set Social Trading', 10], ['Wormhole Finance', 10], ['Fringe Finance', 10], ['Lovely Identity', 10],
+                ['Unibot', 10], ['Tokenized Equity', 10], ['Agriculture', 10], ['NEO Tokyo Storage', 10],
+                ['Brine Frontier', 10], ['Safety Nest Protocol', 10], ['Federal Reserve', 10], ['Energy Cash', 10],
+                ['Open Source', 10], ['Marketing', 10], ['Release', 10], ['Donation', 10], ['Gitcoin', 10],
+                ['Protocol Grants', 10], ['Healthcare', 10], ['AirSwap Mobile', 10], ['RealFi', 10],
+                ['LooksRare', 10], ['WETH', 10], ['CoinSquare', 10], ['Vesper', 10], ['WazirX', 10],
+                ['OS Protocol', 10], ['ShapeShift', 10], ['MULL', 10], ['Quantova', 10], ['Crypto', 20],
+                ['Token', 10], ['Exchange', 10], ['Platform', 10], ['Bridge', 10], ['Lending', 10],
+                ['Borrowing', 10], ['Stablecoin', 10], ['Curve', 10], ['Balancer', 10], ['Uniswap', 10],
+                ['1inch', 10], ['Kyber', 10], ['Bancor', 10], ['Synthetix', 10], ['Maker', 10],
+                ['Compound', 10], ['dYdX', 10], ['Perpetual', 10], ['Futures', 10], ['Options', 10],
+                ['Derivatives', 10], ['AMM', 10], ['Liquidity Provider', 10], ['Flash Loan', 10],
+                ['Wrapped Token', 10], ['Cross-Chain Bridge', 10], ['Layer 1', 10], ['Sidechain', 10],
+                ['Rollup', 10], ['ZK-Rollup', 10], ['Optimistic Rollup', 10], ['Plasma', 10],
+                ['State Channel', 10], ['Payment Channel', 10], ['Off-Chain', 10], ['On-Chain', 10],
+                ['Gas', 10], ['Mining', 10], ['Staking Pool', 10], ['Validator', 10], ['Delegator', 10],
+                ['Slashing', 10], ['Consensus', 10], ['Proof of Stake', 10], ['Proof of Work', 10],
+                ['DApp', 10], ['API', 10], ['SDK', 10], ['Web3', 10], ['IPFS', 10], ['Filecoin', 10],
+                ['Arweave', 10], ['Swarm', 10], ['ENS', 10], ['DNS', 10], ['Identity', 10], ['Privacy', 10],
+                ['Zero-Knowledge', 10], ['Mixer', 10], ['Anonymity', 10], ['Security', 10], ['Audit', 10],
+                ['Bug Bounty', 10], ['Hack', 10], ['Exploit', 10], ['Scam', 10], ['Rug Pull', 10],
+                ['Ponzi', 10], ['Phishing', 10], ['Malware', 10], ['KYC', 10], ['AML', 10],
+                ['Regulation', 10], ['Compliance', 10], ['Tax', 10], ['Custody', 10], ['Non-Custodial', 10],
+                ['Cold Storage', 10], ['Hot Wallet', 10], ['Hardware Wallet', 10], ['Software Wallet', 10],
+                ['Multisig', 10], ['Timelock', 10], ['Escrow', 10], ['Arbitration', 10], ['Dispute', 10],
+                ['Crowdfunding', 10], ['IDO', 10], ['IEO', 10], ['STO', 10], ['NFT Marketplace', 10],
+                ['Gaming', 10], ['Play to Earn', 10], ['Virtual Reality', 10], ['Augmented Reality', 10],
+                ['DAO Governance', 10], ['Voting', 10], ['Proposal', 10], ['Treasury', 10], ['Community', 10],
+                ['Developer', 10], ['Ecosystem', 10], ['Grant', 10], ['Incubator', 10], ['Accelerator', 10],
+                ['Hackathon', 10], ['Conference', 10], ['Meetup', 10], ['Event', 10], ['Partnership', 10],
+                ['Integration', 10], ['Collaboration', 10], ['Research', 10], ['Innovation', 10],
+                ['Experiment', 10], ['Testnet', 10], ['Mainnet', 10], ['Fork', 10], ['Hard Fork', 10],
+                ['Soft Fork', 10], ['Upgrade', 10], ['EIP', 10], ['QRC-10', 10], ['QRC-721', 10],
+                ['QRC-1105', 10], ['Standard', 10], ['Interoperability', 10], ['Scalability', 10],
+                ['Throughput', 10], ['Latency', 10], ['Bandwidth', 10], ['Decentralization', 10],
+                ['Censorship Resistance', 10], ['Trustless', 10], ['Permissionless', 10], ['FOSS', 10],
+                ['License', 10], ['Patent', 10], ['Trademark', 10], ['Copyright', 10], ['IP', 10],
+                ['Data', 10], ['Analytics', 10], ['Metrics', 10], ['Dashboard', 10], ['Visualization', 10],
+                ['Chart', 10], ['Graph', 10], ['Index', 10], ['Oracle Network', 10], ['Price Feed', 10],
+                ['Randomness', 10], ['Verifiable', 10], ['Attestation', 10], ['Signature', 10],
+                ['Encryption', 10], ['Hash', 10], ['Merkle Tree', 10], ['Blockchain Explorer', 10],
+                ['Transaction', 10], ['Block', 10], ['Mempool', 10], ['Fee', 10], ['Gas Price', 10],
+                ['Gas Limit', 10], ['Nonce', 10], ['Address', 10], ['Public Key', 10], ['Private Key', 10],
+                ['Seed Phrase', 10], ['Recovery', 10], ['Backup', 10], ['Wallet Connect', 10],
+                ['MetaMask', 10], ['Trust Wallet', 10], ['Coinbase Wallet', 10], ['Ledger', 10],
+                ['Trezor', 10], ['SafePal', 10], ['Exodus', 10], ['Atomic Wallet', 10],
+                ['MyEtherWallet', 10], ['imToken', 10], ['TokenPocket', 10], ['BitKeep', 10],
+                ['Rainbow', 10], ['Argent', 10], ['Gnosis Safe', 10], ['Fireblocks', 10],
+                ['Anchorage', 10], ['BitGo', 10], ['Cobo', 10], ['Casa', 10], ['Unchained Capital', 10],
+                ['Bitfinex', 10], ['Huobi', 10], ['KuCoin', 10], ['OKX', 10], ['Bybit', 10],
+                ['Gemini', 10], ['Bitstamp', 10], ['Coinbase', 10], ['FTX', 10], ['Upbit', 10],
+                ['Bithumb', 10], ['Poloniex', 10], ['Bittrex', 10], ['Deribit', 10], ['AscendEX', 10],
+                ['MEXC', 10], ['Crypto.com', 10], ['Bitrue', 10], ['WhiteBIT', 10], ['ProBit', 10],
+                ['LBank', 10], ['XT.com', 10], ['Phemex', 10], ['Bibox', 10], ['BigONE', 10],
+                ['CoinEx', 10], ['HitBTC', 10], ['EXMO', 10], ['CEX.IO', 10], ['Changelly', 10],
+                ['Bitvavo', 10], ['Bitso', 10], ['Indodax', 10], ['Korbit', 10], ['Coinone', 10],
+                ['Liquid', 10], ['itBit', 10], ['Zaif', 10], ['Coincheck', 10], ['BtcTurk', 10],
+                ['Paribu', 10], ['Bitflyer', 10], ['Luno', 10], ['Independent Reserve', 10],
+                ['CoinJar', 10], ['ZebPay', 10], ['Unocoin', 10], ['CoinDCX', 10], ['BuyUcoin', 10],
+                ['Bitbns', 10], ['Giottus', 10], ['Kuna', 10], ['Livecoin', 10], ['YoBit', 10],
+                ['Crex24', 10], ['SouthXchange', 10], ['BitBay', 10], ['Bitpanda', 10], ['Bitkub', 10],
+                ['Tokocrypto', 10], ['Rekeningku', 10], ['Pintu', 10], ['Zipmex', 10], ['BitoPro', 10],
+                ['Ace', 10], ['Max', 10], ['MaiCoin', 10], ['BitoEX', 10], ['Delta', 10],
+                ['BitDelta', 10], ['Binance', 10], ['OKEx', 10], ['Huobi Global', 10],
+                ['Crypto Exchange', 10], ['Centralized Exchange', 10], ['Decentralized Exchange', 10],
+                ['Spot Trading', 10], ['Margin Trading', 10], ['Futures Trading', 10], ['Options Trading', 10],
+                ['Perpetual Futures', 10], ['Leverage', 10], ['Liquidation', 10], ['Funding Rate', 10],
+                ['Order Book', 10], ['Market Maker', 10], ['Market Taker', 10], ['Slippage', 10],
+                ['Liquidity Mining', 10], ['Yield Optimizer', 10], ['Auto-Compounding', 10],
+                ['Impermanent Loss', 10], ['Rug Pull Protection', 10], ['Anti-Rug', 10], ['SafeMoon', 10],
+                ['BabyDoge', 10], ['Shiba Inu', 10], ['Dogecoin', 10], ['Meme Coin', 10], ['Shitcoin', 10],
+                ['Moon Coin', 10], ['Pump and Dump', 10], ['Whale', 10], ['Dolphin', 10], ['Shark', 10],
+                ['Fish', 10], ['FOMO', 10], ['FUD', 10], ['HODL', 10], ['BTFD', 10], ['DYOR', 10],
+                ['ATH', 10], ['ATL', 10], ['Bull Market', 10], ['Bear Market', 10], ['Sideways Market', 10],
+                ['Volatility', 10], ['Market Cap', 10], ['Circulating Supply', 10], ['Total Supply', 10],
+                ['Max Supply', 10], ['Tokenomics', 10], ['Inflationary', 10], ['Deflationary', 10],
+                ['Burn', 10], ['Mint', 10], ['Stake', 10], ['Unstake', 10], ['Lockup', 10],
+                ['Vesting Period', 10], ['Cliff', 10], ['Airdrop Farming', 10], ['Sybil Attack', 10],
+                ['Bot', 10], ['MEV', 10], ['Flashbots', 10], ['Arbitrage', 10], ['Triangular Arbitrage', 10],
+                ['Latency Arbitrage', 10], ['Cross-Exchange Arbitrage', 10], ['DeFi Aggregator', 10],
+                ['Yield Aggregator', 10], ['Zap', 10], ['InstaDApp', 10], ['DeFi Saver', 10],
+                ['Furucombo', 10], ['DeFi Pulse', 10], ['Dune Analytics', 10], ['Nansen', 10],
+                ['Glassnode', 10], ['Chainalysis', 10], ['Elliptic', 10], ['CipherTrace', 10],
+                ['Scorechain', 10], ['Crystal Blockchain', 10], ['Blockchain Analytics', 10],
+                ['On-Chain Analytics', 10], ['Off-Chain Analytics', 10], ['Sentiment Analysis', 10],
+                ['Social Sentiment', 10], ['Twitter Sentiment', 10], ['Reddit Sentiment', 10],
+                ['Telegram Sentiment', 10], ['Discord Sentiment', 10], ['Whale Alert', 10],
+                ['Transaction Monitoring', 10], ['Address Tracking', 10], ['Wallet Tracking', 10],
+                ['Token Tracking', 10], ['Smart Contract Audit', 10], ['Code Review', 10],
+                ['Security Audit', 10], ['Penetration Testing', 10], ['Vulnerability', 10],
+                ['Exploit Mitigation', 10], ['Reentrancy', 10], ['Front-Running', 10],
+                ['Sandwich Attack', 10], ['Oracle Manipulation', 10], ['Price Oracle', 10],
+                ['TWAP', 10], ['VWAP', 10], ['Chainlink Oracle', 10], ['Band Protocol', 10],
+                ['API3', 10], ['UMA', 10], ['Tellor', 10], ['DIA', 10], ['Flux', 10],
+                ['Redstone', 10], ['SupraOracles', 10], ['Pyth Network', 10], ['Witnet', 10],
+                ['Razor Network', 10], ['Nest Protocol', 10], ['DOS Network', 10],
+                ['Kylin Network', 10], ['iExec RLC', 10], ['Ocean Protocol', 10], ['Streamr', 10],
+                ['Fetch.ai', 10], ['SingularityNET', 10], ['Numeraire', 10], ['Covalent', 10],
+                ['SubQuery', 10], ['Dune', 10], ['Flipside Crypto', 10], ['Messari', 10],
+                ['CoinGecko', 10], ['CoinMarketCap', 10], ['DefiLlama', 10], ['DappRadar', 10],
+                ['Qtov', 10], ['BscScan', 10], ['PolygonScan', 10], ['Snowtrace', 10],
+                ['Arbiscan', 10], ['Optimistic Qtov', 10], ['Blockscout', 10], ['Etherchain', 10],
+                ['Blockchair', 10], ['Blockchain.com', 10], ['BitInfoCharts', 10], ['Tokenview', 10],
+                ['DeBank', 10], ['Zapper.fi', 10], ['Zerion', 10], ['DeFi Explorer', 10],
+                ['NFT Explorer', 10], ['Token Explorer', 10], ['Wallet Explorer', 10],
+                ['Transaction Explorer', 10], ['Block Explorer', 10], ['Gas Tracker', 10],
+                ['ETH Gas Station', 10], ['GasNow', 10], ['Gas Price Oracle', 10], ['Gas Fee', 10],
+                ['Gas Optimization', 10], ['Layer 2 Scaling', 10], ['zkSync', 10], ['StarkNet', 10],
+                ['Arbitrum One', 10], ['Arbitrum Nova', 10], ['Base', 10], ['Scroll', 10],
+                ['Linea', 10], ['Polygon zkEVM', 10], ['zkEVM', 10], ['Loopring', 10],
+                ['Immutable X', 10], ['Sorare', 10], ['Gods Unchained', 10], ['Axie Infinity', 10],
+                ['Decentraland', 10], ['The Sandbox', 10], ['CryptoKitties', 10],
+                ['Bored Ape Yacht Club', 10], ['CryptoPunks', 10], ['Meebits', 10],
+                ['Art Blocks', 10], ['Foundation', 10], ['Zora', 10], ['Rarible', 10],
+                ['OpenSea', 10], ['Blur', 10], ['X2Y2', 10], ['Magic Eden', 10], ['Tensor', 10],
+                ['NFT Lending', 10], ['NFT Staking', 10], ['NFT Fractionalization', 10],
+                ['NFT Royalties', 10], ['NFT Metadata', 10], ['NFT Standard', 10], ['QRC-998', 10],
+                ['NFT Gaming', 10], ['NFT Art', 10], ['NFT Music', 10], ['NFT Fashion', 10],
+                ['NFT Real Estate', 10], ['NFT Virtual Land', 10], ['NFT Avatar', 10],
+                ['NFT Collectible', 10], ['NFT Utility', 10], ['NFT Membership', 10],
+                ['NFT Ticketing', 10], ['NFT Event', 10], ['NFT Charity', 10], ['NFT Donation', 10],
+                ['NFT Airdrop', 10], ['NFT Whitelist', 10], ['NFT Minting', 10], ['NFT Burning', 10],
+                ['NFT Trading', 10], ['NFT Auction', 10], ['NFT Raffle', 10], ['NFT Giveaway', 10],
+                ['NFT Launchpad', 10], ['NFT Incubator', 10], ['NFT Accelerator', 10], ['NFT Fund', 10],
+                ['NFT Venture', 10], ['NFT Investment', 10], ['NFT Portfolio', 10], ['NFT Analytics', 10],
+                ['NFT Tracker', 10], ['NFT Rarity', 10], ['NFT Floor Price', 10], ['NFT Volume', 10],
+                ['NFT Sales', 10], ['NFT Ownership', 10], ['NFT Provenance', 10], ['NFT Authenticity', 10],
+                ['NFT Verification', 10], ['NFT Certification', 10], ['NFT Escrow', 10],
+                ['NFT Lending Platform', 10], ['NFT Borrowing', 10], ['NFT Collateral', 10],
+                ['NFT DeFi', 10], ['NFT Yield Farming', 10], ['NFT Staking Pool', 10],
+                ['NFT Liquidity Pool', 10], ['NFT AMM', 10], ['NFT Swap', 10], ['NFT Bridge', 10],
+                ['NFT Cross-Chain', 10], ['NFT Interoperability', 10], ['NFT Scalability', 10],
+                ['NFT Privacy', 10], ['NFT Security', 10], ['NFT Audit', 10], ['NFT Bug Bounty', 10],
+                ['NFT Hack', 10], ['NFT Exploit', 10], ['NFT Scam', 10], ['NFT Rug Pull', 10],
+                ['NFT Phishing', 10], ['NFT Malware', 10], ['NFT KYC', 10], ['NFT AML', 10],
+                ['NFT Regulation', 10], ['NFT Compliance', 10], ['NFT Tax', 10], ['NFT Custody', 10],
+                ['NFT Non-Custodial', 10], ['NFT Cold Storage', 10], ['NFT Hot Wallet', 10],
+                ['NFT Hardware Wallet', 10], ['NFT Software Wallet', 10], ['NFT Multisig', 10],
+                ['NFT Timelock', 10], ['NFT Arbitration', 10], ['NFT Dispute', 10]
+            ];
+
+            // Example mapping of account tags and token tags for each word
+            const tagsData = {
+                'DeFi': {
+                    accountTags: ['Liquidity Provider', 'Yield Farmer', 'Protocol Developer'],
+                    tokenTags: ['Governance Token', 'Stablecoin', 'Utility Token']
+                },
+                'Yield Farming': {
+                    accountTags: ['Farmer', 'Liquidity Provider', 'Staker'],
+                    tokenTags: ['LP Token', 'Reward Token', 'Yield Token']
+                },
+                'Staking': {
+                    accountTags: ['Validator', 'Delegator', 'Staker'],
+                    tokenTags: ['Staking Token', 'Reward Token', 'Governance Token']
+                },
+                'Token Sale': {
+                    accountTags: ['Investor', 'Early Adopter', 'Contributor'],
+                    tokenTags: ['ICO Token', 'IDO Token', 'IEO Token']
+                },
+                'Blockchain': {
+                    accountTags: ['Developer', 'Node Operator', 'Miner'],
+                    tokenTags: ['Native Token', 'Gas Token', 'Utility Token']
+                },
+                'Wallet': {
+                    accountTags: ['User', 'Holder', 'Trader'],
+                    tokenTags: ['Wrapped Token', 'Native Token', 'QRC-20 Token']
+                },
+                'DEX': {
+                    accountTags: ['Trader', 'Liquidity Provider', 'Market Maker'],
+                    tokenTags: ['LP Token', 'Governance Token', 'Swap Token']
+                },
+                'Smart Contract': {
+                    accountTags: ['Developer', 'Auditor', 'Deployer'],
+                    tokenTags: ['Utility Token', 'Governance Token', 'Protocol Token']
+                },
+                'Liquidity': {
+                    accountTags: ['Liquidity Provider', 'Market Maker', 'Trader'],
+                    tokenTags: ['LP Token', 'Stablecoin', 'Wrapped Token']
+                },
+                'NFT': {
+                    accountTags: ['Creator', 'Collector', 'Trader'],
+                    tokenTags: ['QRC-721 Token', 'QRC-1155 Token', 'Collectible Token']
+                },
+                'Quantova': {
+                    accountTags: ['Developer', 'Miner', 'User'],
+                    tokenTags: ['ETH', 'QRC-20 Token', 'Gas Token']
+                },
+                'Uniswap': {
+                    accountTags: ['Trader', 'Liquidity Provider', 'Developer'],
+                    tokenTags: ['UNI Token', 'LP Token', 'Governance Token']
+                },
+                'OpenSea': {
+                    accountTags: ['NFT Trader', 'Creator', 'Collector'],
+                    tokenTags: ['NFT Token', 'QRC-721 Token', 'Marketplace Token']
+                },
+                'default': {
+                    accountTags: ['User', 'Trader', 'Holder'],
+                    tokenTags: ['Utility Token', 'Governance Token', 'Reward Token']
+                }
+            };
+
+            // Preprocess the wordList to adjust weights
+            const weightFactor = 0.5;
+            const adjustedWordList = wordList.map(([word, weight]) => {
+                if (weight <= 20) {
+                    return [word, weight / weightFactor];
+                }
+                return [word, weight];
+            });
+
+            // Select the canvas and container
+            const canvas = document.getElementById('word-cloud');
+            const container = canvas.parentElement;
+
+            // Function to set canvas size
+            const setCanvasSize = () => {
+                const containerWidth = container.offsetWidth;
+                const containerHeight = containerWidth / 2; // Maintain 2:1 aspect ratio
+                canvas.width = containerWidth;
+                canvas.height = containerHeight;
+                canvas.style.width = `${containerWidth}px`;
+                canvas.style.height = `${containerHeight}px`;
+            };
+
+            // Function to generate word cloud
+            const generateWordCloud = () => {
+                const gridSize = Math.max(2, Math.floor(canvas.width / 200));
+                const responsiveWeightFactor = weightFactor * (canvas.width / 1200);
+
+                const options = {
+                    list: adjustedWordList,
+                    gridSize: gridSize,
+                    weightFactor: responsiveWeightFactor,
+                    fontFamily: 'Arial, sans-serif',
+                    color: () => {
+                        const colors = ['#ff6f61', '#6b5b95', '#88b04b', '#f7cac9', '#92a8d1', '#d4a5a5', '#ffcc5c'];
+                        return colors[Math.floor(Math.random() * colors.length)];
+                    },
+                    shape: 'square',
+                    ellipticity: 0.5,
+                    rotateRatio: 0.5,
+                    rotationSteps: 2,
+                    backgroundColor: '#2a3439',
+                    shuffle: true,
+                    drawOutOfBound: true,
+                    minSize: 1,
+                    click: (item) => {
+                        const popup = document.getElementById('popup');
+                        const popupTitle = document.getElementById('popup-title');
+                        const accountTagsList = document.getElementById('account-tags-list');
+                        const tokenTagsList = document.getElementById('token-tags-list');
+                        popupTitle.textContent = item[0];
+                        const tags = tagsData[item[0]] || tagsData['default'];
+                        accountTagsList.innerHTML = '';
+                        tags.accountTags.forEach(tag => {
+                            const li = document.createElement('li');
+                            li.textContent = tag;
+                            accountTagsList.appendChild(li);
+                        });
+                        tokenTagsList.innerHTML = '';
+                        tags.tokenTags.forEach(tag => {
+                            const li = document.createElement('li');
+                            li.textContent = tag;
+                            tokenTagsList.appendChild(li);
+                        });
+                        popup.style.display = 'flex';
+                    },
+                    hover: (item, dimension, event) => {
+                        const tooltip = document.getElementById('tooltip');
+                        if (item) {
+                            const originalWeight = wordList.find(([word]) => word === item[0])[1];
+                            tooltip.textContent = `${item[0]} (Weight: ${originalWeight})`;
+                            tooltip.style.display = 'block';
+                            const x = event.pageX + 10;
+                            const y = event.pageY + 10;
+                            tooltip.style.left = `${x}px`;
+                            tooltip.style.top = `${y}px`;
+                        } else {
+                            tooltip.style.display = 'none';
+                        }
+                    }
+                };
+
+                WordCloud(canvas, options);
+            };
+
+            // Initial setup
+            setCanvasSize();
+            generateWordCloud();
+
+            // Debounce function
+            const debounce = (func, wait) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            };
+
+            // Handle window resize
+            window.addEventListener('resize', debounce(() => {
+                setCanvasSize();
+                generateWordCloud();
+            }, 100));
+
+            // Manual hover detection
+            const tooltip = document.getElementById('tooltip');
+            canvas.addEventListener('mousemove', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                let found = false;
+                for (let i = 0; i < WordCloud.words.length; i++) {
+                    const word = WordCloud.words[i];
+                    const dim = word.dimension;
+                    if (x >= dim.x && x <= dim.x + dim.w && y >= dim.y && y <= dim.y + dim.h) {
+                        const originalWeight = wordList.find(([w]) => w === word[0])[1];
+                        tooltip.textContent = `${word[0]} (Weight: ${originalWeight})`;
+                        tooltip.style.display = 'block';
+                        const tooltipWidth = tooltip.offsetWidth;
+                        const tooltipHeight = tooltip.offsetHeight;
+                        let tooltipX = event.pageX + 10;
+                        let tooltipY = event.pageY + 10;
+                        if (tooltipX + tooltipWidth > window.innerWidth) {
+                            tooltipX = event.pageX - tooltipWidth - 10;
+                        }
+                        if (tooltipY + tooltipHeight > window.innerHeight) {
+                            tooltipY = event.pageY - tooltipHeight - 10;
+                        }
+                        tooltip.style.left = `${tooltipX}px`;
+                        tooltip.style.top = `${tooltipY}px`;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    tooltip.style.display = 'none';
+                }
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+
+            // Popup close functionality
+            const closeBtn = document.querySelector('.close');
+            const popup = document.getElementById('popup');
+            closeBtn.onclick = () => {
+                popup.style.display = 'none';
+            };
+            window.onclick = (event) => {
+                if (event.target === popup) {
+                    popup.style.display = 'none';
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

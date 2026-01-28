@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Tools</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./API.html">API Plans <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="./profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                        <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-margin">
+        <div class="container">
+            <div class="title-bar">
+                <h1 class="main-title">Tools</h1>
+            </div>
+            <div class="d-block d-lg-none mb-2">
+                <button class="btn toggle-menu d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#asideNav" aria-controls="asideNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars me-2"></i> Tools Menu
+                </button>
+
+            </div>
+            <div class="d-flex align-items-start mt-3 position-relative">
+                <div class="collapse d-lg-block" id="asideNav">
+                    <div class="nav flex-column nav-pills navPills" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <!-- CSV Export Tool -->
+                        <button class="nav-link toolNavLink active" id="csv-export-tab" data-bs-toggle="pill"
+                            data-bs-target="#csv-export" type="button" role="tab" aria-controls="csv-export"
+                            aria-selected="true">
+                            CSV Export
+                        </button>
+                        <!-- Account Balance Checker Tool -->
+                        <button class="nav-link toolNavLink" id="account-balance-tab" data-bs-toggle="pill"
+                            data-bs-target="#account-balance" type="button" role="tab" aria-controls="account-balance"
+                            aria-selected="false">
+                            Account Balance Checker
+                        </button>
+                        <!-- Token Supply Checker Tool -->
+                        <button class="nav-link toolNavLink" id="token-supply-tab" data-bs-toggle="pill"
+                            data-bs-target="#token-supply" type="button" role="tab" aria-controls="token-supply"
+                            aria-selected="false">
+                            Token Supply Checker
+                        </button>
+
+                        <!-- Token Standard Checker Tool -->
+                        <button class="nav-link toolNavLink" id="token-standard-tab" data-bs-toggle="pill"
+                            data-bs-target="#token-standard" type="button" role="tab" aria-controls="token-standard"
+                            aria-selected="false">
+                            Token Standard Checker
+                        </button>
+
+                        <!-- Input Data Decoder Tool -->
+                        <button class="nav-link toolNavLink" id="input-decoder-tab" data-bs-toggle="pill"
+                            data-bs-target="#input-decoder" type="button" role="tab" aria-controls="input-decoder"
+                            aria-selected="false">
+                            Input Data Decoder
+                        </button>
+
+                        <hr>
+
+                        <!-- Similar Contract Search Tool -->
+                        <button class="nav-link toolNavLink" id="contract-search-tab" data-bs-toggle="pill"
+                            data-bs-target="#contract-search" type="button" role="tab" aria-controls="contract-search"
+                            aria-selected="false">
+                            Similar Contract Search
+                        </button>
+
+                        <!-- Vyper Online Compiler Tool -->
+                        <button class="nav-link toolNavLink" id="vyper-compiler-tab" data-bs-toggle="pill"
+                            data-bs-target="#vyper-compiler" type="button" role="tab" aria-controls="vyper-compiler"
+                            aria-selected="false">
+                            Vyper Online Compiler
+                        </button>
+
+                        <!-- Bytecode to Opcode Tool -->
+                        <button class="nav-link toolNavLink" id="bytecode-opcode-tab" data-bs-toggle="pill"
+                            data-bs-target="#bytecode-opcode" type="button" role="tab" aria-controls="bytecode-opcode"
+                            aria-selected="false">
+                            Bytecode to Opcode
+                        </button>
+
+                        <!-- Broadcast Transaction Tool -->
+                        <button class="nav-link toolNavLink" id="broadcast-transaction-tab" data-bs-toggle="pill"
+                            data-bs-target="#broadcast-transaction" type="button" role="tab"
+                            aria-controls="broadcast-transaction" aria-selected="false">
+                            Broadcast Transaction
+                        </button>
+
+                        <hr>
+
+                        <!-- Unit Converter Tool -->
+                        <button class="nav-link toolNavLink" id="unit-converter-tab" data-bs-toggle="pill"
+                            data-bs-target="#unit-converter" type="button" role="tab" aria-controls="unit-converter"
+                            aria-selected="false">
+                            Unit Converter
+                        </button>
+
+                        <!-- Base64 Converter Tool -->
+                        <button class="nav-link toolNavLink" id="base64-converter-tab" data-bs-toggle="pill"
+                            data-bs-target="#base64-converter" type="button" role="tab" aria-controls="base64-converter"
+                            aria-selected="false">
+                            Base64 Converter
+                        </button>
+
+                        <!-- Block & Date Converter Tool -->
+                        <button class="nav-link toolNavLink" id="block-date-converter-tab" data-bs-toggle="pill"
+                            data-bs-target="#block-date-converter" type="button" role="tab"
+                            aria-controls="block-date-converter" aria-selected="false">
+                            Block & Date Converter
+                        </button>
+
+                        <!-- UTF-8 Converter Tool -->
+                        <button class="nav-link toolNavLink" id="utf8-converter-tab" data-bs-toggle="pill"
+                            data-bs-target="#utf8-converter" type="button" role="tab" aria-controls="utf8-converter"
+                            aria-selected="false">
+                            UTF-8 Converter
+                        </button>
+
+                        <!-- Method ID Converter Tool -->
+                        <button class="nav-link toolNavLink" id="method-id-converter-tab" data-bs-toggle="pill"
+                            data-bs-target="#method-id-converter" type="button" role="tab"
+                            aria-controls="method-id-converter" aria-selected="false">
+                            Method ID Converter
+                        </button>
+
+                        <hr>
+
+                        <!-- Code Reader Tool -->
+                        <a href="./codeReader.html" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Code Reader
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+
+                        <!-- Token Approvals Tool -->
+                        <a href="./tokenApprovals.html" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Token Approvals
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+
+                        <!-- Verify Signatures Tool -->
+                        <a href="./verifiedSignatures.html" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Verify Signatures
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+                        <!-- Transaction Decoder Tool -->
+                        <a href="./transactionDecoder.html" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Transaction Decoder
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+
+                        <!-- Smart Contract Search Tool -->
+                        <a href="./smartContractSearch.html" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Smart Contract Search
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+
+                        <!-- Contract Diff Checker Tool -->
+                        <a href="./contractDiffChecker.html" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Contract Diff Checker
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+
+                        <!-- Validate Onchain Data Tool -->
+                        <a href="#" class="toolReaderLink">
+                            <button class="nav-link toolNavLink">
+                                Validate Onchain Data
+                                <img src="./assets/images/arrow-up-right.svg" alt="" class="arrow-up-img">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-content" id="v-pills-tabContent">
+                    <!-- CSV Export Tab -->
+                    <div class="tab-pane fade show active" id="csv-export" role="tabpanel"
+                        aria-labelledby="csv-export-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>CSV Export</h2>
+                                <p>
+                                    Download blockchain data as a CSV file. Before continuing, <strong>please verify
+                                        that you are not a robot</strong> by completing the captcha below.
+                                </p>
+                            </div>
+
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <form action="#">
+                                            <!-- Export Type -->
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Select export type</label>
+                                                <select class="form-select toolInput custom-chevron">
+                                                    <option selected>Transactions</option>
+                                                    <option value="1">Internal Transactions</option>
+                                                    <option value="2">Token Transfer</option>
+                                                    <option value="3">Qtov Token Transfer</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Address -->
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Address <span>*</span></label>
+                                                <input type="text" class="form-control toolInput" placeholder="0x.."
+                                                    required>
+                                            </div>
+
+                                            <!-- Radio Buttons -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Choose download option:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio"
+                                                        name="radioDefault" id="radioDefault1" value="date">
+                                                    <label class="form-check-label" for="radioDefault1">Date</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="radioDefault"
+                                                        id="radioDefault2" value="block">
+                                                    <label class="form-check-label" for="radioDefault2">Block
+                                                        Number</label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Date Section -->
+                                            <div id="date-content" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Start Date <span>*</span></label>
+                                                            <div class="date-picker-wrapper">
+                                                                <div class="dateIcon"><i
+                                                                        class="fa-regular fa-calendar-days"></i></div>
+                                                                <input type="text" id="start_date" class="date-picker"
+                                                                    placeholder="MM/DD/YYYY" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">End Date <span>*</span></label>
+                                                            <div class="date-picker-wrapper">
+                                                                <div class="dateIcon"><i
+                                                                        class="fa-regular fa-calendar-days"></i></div>
+                                                                <input type="text" id="end_date" class="date-picker"
+                                                                    placeholder="MM/DD/YYYY" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <!-- Block Section -->
+                                            <div id="block-content" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Start Block <span>*</span></label>
+                                                            <div class="date-picker-wrapper">
+                                                                <div class="dateIcon"><i class="bi bi-box"></i></div>
+                                                                <input type="number"
+                                                                    class="block-input form-control toolInput"
+                                                                    placeholder="0" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">End Block <span>*</span></label>
+                                                            <div class="date-picker-wrapper">
+                                                                <div class="dateIcon"><i class="bi bi-box"></i></div>
+                                                                <input type="number"
+                                                                    class="block-input form-control toolInput"
+                                                                    placeholder="0" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Toggles -->
+                                            <div class="toggle-container txnToggle">
+                                                <label class="toggle gap-2 justify-content-start">
+                                                    <input class="toggle-checkbox" disabled type="checkbox">
+                                                    <div class="toggle-switch"></div>
+                                                    <span class="toggle-label"> Tick to include txn private notes</span>
+                                                </label>
+                                                <label class="toggle gap-2 justify-content-start mt-3">
+                                                    <input class="toggle-checkbox" disabled type="checkbox">
+                                                    <div class="toggle-switch"></div>
+                                                    <span class="toggle-label"> Tick to include private name tags</span>
+                                                </label>
+                                            </div>
+
+                                            <p class="recordsDesc mt-3">
+                                                <i class="fa-regular fa-circle-question me-1"></i>
+                                                The earliest 5,000 records within the selected range will be exported.
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Download</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Account Balance Checker Tab -->
+                    <div class="tab-pane fade" id="account-balance" role="tabpanel"
+                        aria-labelledby="account-balance-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Account Balance Checker (ETH)</h2>
+                                <p>You can look up the historical balance of an account's Qtov or Tokens at a specific
+                                    block number or date.</p>
+                            </div>
+
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <form action="#">
+                                            <!-- Option -->
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Choose an option</label>
+                                                <select class="form-select toolInput custom-chevron">
+                                                    <option selected>Qtov (ETH)</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Address -->
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Account Address / Contract Address
+                                                    <span>*</span></label>
+                                                <input type="text" class="form-control toolInput" placeholder="0x.."
+                                                    required>
+                                            </div>
+
+                                            <!-- Radio -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Filter by:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio"
+                                                        name="radioDefault" id="radioDefault3" value="date">
+                                                    <label class="form-check-label" for="radioDefault3">Date</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="radioDefault"
+                                                        id="radioDefault4" value="block">
+                                                    <label class="form-check-label" for="radioDefault4">Block
+                                                        Number</label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Date Section -->
+                                            <div id="date-content" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Date for the snapshot</label>
+                                                            <div class="date-picker-wrapper snapshotInput">
+                                                                <input type="text" id="snapShotDate" class="date-picker"
+                                                                    placeholder="MM/DD/YYYY" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Block Section -->
+                                            <div id="block-content" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Block Number for the snapshot
+                                                                <span>*</span></label>
+                                                            <div class="date-picker-wrapper snapshotInput">
+                                                                <input type="number"
+                                                                    class="block-input form-control toolInput"
+                                                                    placeholder="Enter a Block No" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Lookup</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Token Supply Checker tool -->
+                    <div class="tab-pane fade" id="token-supply" role="tabpanel" aria-labelledby="token-supply-tab"
+                        tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Token Supply Checker</h2>
+                                <p>You can look up the historical supply of a token (QRC-20) at a specific block number
+                                    or date.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <form action="#">
+                                            <!-- Address -->
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Token Contract Address
+                                                    <span>*</span></label>
+                                                <input type="text" name="token-address" class="form-control toolInput"
+                                                    placeholder="0x.." required>
+                                            </div>
+
+                                            <!-- Radio -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Filter by:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio"
+                                                        name="radioDefault" id="radioDefault5" value="date">
+                                                    <label class="form-check-label" for="radioDefault5">Date</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="radioDefault"
+                                                        id="radioDefault6" value="block">
+                                                    <label class="form-check-label" for="radioDefault6">Block
+                                                        Number</label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Date Section -->
+                                            <div id="date-content" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Date for the snapshot</label>
+                                                            <div class="date-picker-wrapper snapshotInput">
+                                                                <input type="date" id="snapShotDate" class="date-picker"
+                                                                    placeholder="MM/DD/YYYY" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Block Section -->
+                                            <div id="block-content" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Block Number for the snapshot
+                                                                <span>*</span></label>
+                                                            <div class="date-picker-wrapper snapshotInput">
+                                                                <input type="number"
+                                                                    class="block-input form-control toolInput"
+                                                                    placeholder="Enter a Block No" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Lookup</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab pane for Token Standard Checker tool -->
+                    <div class="tab-pane fade" id="token-standard" role="tabpanel" aria-labelledby="token-standard-tab"
+                        tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Token Standard Checker</h2>
+                                <p>
+                                    Check whQtov a token meets the QRC-20, QRC-721, or QRC-1155 standards
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <form action="#">
+                                            <!-- Radio -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Choose Type:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio" name="QRC"
+                                                        id="radioDefault7" value="QRC-20">
+                                                    <label class="form-check-label" for="radioDefault7">QRC-20</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="QRC"
+                                                        id="radioDefault8" value="QRC-721">
+                                                    <label class="form-check-label" for="radioDefault8">QRC-721
+                                                    </label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="QRC"
+                                                        id="radioDefault9" value="QRC-1155">
+                                                    <label class="form-check-label" for="radioDefault9">QRC-1155
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Contract Address</label>
+                                                <input type="text" name="contract-address"
+                                                    class="form-control toolInput"
+                                                    placeholder="Contract Address (0x....)" required>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Check</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Input Data Decoder tool -->
+                    <div class="tab-pane fade" id="input-decoder" role="tabpanel" aria-labelledby="input-decoder-tab"
+                        tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <div class="d-flex align-items-center gap-1 mb-2">
+                                    <h2 class="mb-0 me-2">Input Data Decoder</h2>
+                                    <span class="betaSpan position-relative top-0" style="right: 0;">Beta</span>
+                                </div>
+                                <p>Interpret and analyze data sent to Quantova smart contracts.</p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-xl-7">
+                                        <form action="#">
+                                            <!-- Radio -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Choose option:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio"
+                                                        name="radioDefault" id="radioDefault10" value="from Transaction"
+                                                        onclick="toggleSection('from-transaction')">
+                                                    <label class="form-check-label" for="radioDefault10">from
+                                                        Transaction</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="radioDefault"
+                                                        id="radioDefault11" value="from Address"
+                                                        onclick="toggleSection('from-address')">
+                                                    <label class="form-check-label" for="radioDefault11">from
+                                                        Address</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="radioDefault"
+                                                        id="radioDefault12" value="from ABI"
+                                                        onclick="toggleSection('from-abi')">
+                                                    <label class="form-check-label" for="radioDefault12">from
+                                                        ABI</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="radioDefault"
+                                                        id="radioDefault13" value="without ABI"
+                                                        onclick="toggleSection('without-abi')">
+                                                    <label class="form-check-label" for="radioDefault13">without
+                                                        ABI</label>
+                                                </div>
+                                            </div>
+                                            <!-- from Transaction -->
+                                            <div id="from-transaction" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Txn Hash</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Transaction Hash" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- from Address -->
+                                            <div id="from-address" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Contract Address</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Contract Address(0x..)">
+                                                        </div>
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input Data</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Input Data">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- from ABI -->
+                                            <div id="from-abi" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input Data</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Input Data">
+                                                        </div>
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input ABI</label>
+                                                            <textarea name="" id="" cols="10" rows="4"
+                                                                class="form-control toolInput"
+                                                                placeholder="[{...}]"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- without ABI -->
+                                            <div id="without-abi" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input Data</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Input Data">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Decode</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Similar Contract Search tool -->
+                    <div class="tab-pane fade" id="contract-search" role="tabpanel"
+                        aria-labelledby="contract-search-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Similar Contracts Search</h2>
+                                <p>
+                                    Find other contracts with similar source code.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-4">
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Contract Address <span>*</span></label>
+                                                <input type="text" class="form-control toolInput" placeholder="0x.."
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4">
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Similarity</label>
+                                                <select class="form-select toolInput custom-chevron">
+                                                    <option selected>Exact</option>
+                                                    <option value="2">Similar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4">
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Chains</label>
+                                                <select class="form-select toolInput custom-chevron">
+                                                    <option selected>Quantova</option>
+                                                    <option value="2">Quantova Sepolia</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Search</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Vyper Online Compiler tool -->
+                    <div class="tab-pane fade" id="vyper-compiler" role="tabpanel" aria-labelledby="vyper-compiler-tab"
+                        tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Vyper Online Compiler (Experimental)</h2>
+                                <p>
+                                    Compiles Vyper source code and outputs the ABI, Bytecode and Runtime Bytecode.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-xl-5">
+                                            <div class="tools-group mb-sm-3 mb-2">
+                                                <label class="form-label">Select Compiler Version</label>
+                                                <select class="form-select toolInput custom-chevron">
+                                                    <option selected>Please Select</option>
+                                                    <option value="2">vyper:1.0</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tools-group mb-2">
+                                        <label class="form-label">Enter Source Code</label>
+                                        <textarea name="" id="" cols="30" rows="9" class="form-control toolInput"
+                                            placeholder="Please enter Source Code"></textarea>
+                                    </div>
+                                </form>
+                                <p class="tipSample">Tip: Try compiling the sample <a href="#"
+                                        class="px-1">Prysmaticlabs Contract</a> (for vyper version 0.1.0b7)</p>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Compile Vyper</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Bytecode to Opcode tool -->
+                    <div class="tab-pane fade" id="bytecode-opcode" role="tabpanel"
+                        aria-labelledby="bytecode-opcode-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Bytecode to Opcode Disassembler</h2>
+                                <p>
+                                    Attempts to decode the low level Contract Bytecodes to Opcodes.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <form action="#">
+                                    <div class="tools-group mb-2">
+                                        <label class="form-label">Enter Contract Bytecode</label>
+                                        <textarea name="" id="" cols="30" rows="9" class="form-control toolInput"
+                                            placeholder="Please enter Source Code"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Broadcast Transaction tool -->
+                    <div class="tab-pane fade" id="broadcast-transaction" role="tabpanel"
+                        aria-labelledby="broadcast-transaction-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Broadcast Raw Transaction</h2>
+                                <p>
+                                    This page allows you to paste a Signed Raw Transaction in hex format (i.e.
+                                    characters 0-9, a-f) and broadcast it over the Quantova network.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <form action="#">
+                                    <div class="tools-group mb-2">
+                                        <label class="form-label">Enter signed transaction hex</label>
+                                        <textarea name="" id="" cols="30" rows="9" class="form-control toolInput"
+                                            placeholder="e.g. 0x.."></textarea>
+                                    </div>
+                                </form>
+                                <p class="tipSample">
+                                    Tip: You can also broadcast programatically via our <a
+                                        href="#">[eth_sendRawTransaction] </a> . Accepts the paramater "hex" for
+                                    prefilling the input box above (i.e <a href="#">Click here</a> )
+                                </p>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Send Transaction</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Unit Converter tool -->
+                    <div class="tab-pane fade" id="unit-converter" role="tabpanel" aria-labelledby="unit-converter-tab"
+                        tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Unit Converter</h2>
+                                <p>
+                                    Qtov or Qtov is often used in different denominations of its currency, such as Wei
+                                    for interacting with smart contracts and QWEI for calculating gas prices. Use our
+                                    Unit
+                                    Converter to easily convert between them! For more info on unit conversion, read our
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard borderBottom">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <form action="#">
+                                            <div class="tools-group tools-group-2">
+                                                <label class="form-label">Enter any value</label>
+                                            </div>
+                                            <!-- Repeatable copy input blocks for Quantova denominations -->
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput"
+                                                    value="1000000000000000000">
+                                                <span class="input-group-text">Wei (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput"
+                                                    value="1000000000000000">
+                                                <span class="input-group-text">KWei (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="1000000000000">
+                                                <span class="input-group-text">MWei (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="1000000000">
+                                                <span class="input-group-text">GWei (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="1000000">
+                                                <span class="input-group-text">Szabo (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="1000">
+                                                <span class="input-group-text">Finney (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="1">
+                                                <span class="input-group-text">Qtov (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="0.001">
+                                                <span class="input-group-text">KQtov (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="0.000001">
+                                                <span class="input-group-text">MQtov (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput" value="0.000000001">
+                                                <span class="input-group-text">GQtov (10)</span>
+                                            </div>
+
+                                            <div class="input-group tools-group mb-2">
+                                                <span class="input-group-text copy-icon" style="cursor: pointer;">
+                                                    <i class="fa-regular fa-copy" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Copy to clipboard"></i>
+                                                </span>
+                                                <input type="text" class="form-control toolInput"
+                                                    value="0.000000000001">
+                                                <span class="input-group-text">Qtov (10)</span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Base64 Converter tool -->
+                    <div class="tab-pane fade" id="base64-converter" role="tabpanel"
+                        aria-labelledby="base64-converter-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Base64 Converter</h2>
+                                <p>
+                                    Convert between Base64 and image or SVG files.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form action="#">
+                                            <!-- Radio -->
+                                            <div class="tools-group tools-group-2">
+                                                <label class="form-label">Choose Conversion:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check base64Check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio" name="base6"
+                                                        id="radioDefault14" value="from Transaction"
+                                                        onclick="toggleSection('base64-to-Image')">
+                                                    <label class="form-check-label" for="radioDefault14">Base64 to
+                                                        Image</label>
+                                                </div>
+                                                <div class="form-check base64Check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="base6"
+                                                        id="radioDefault15" value="from Address"
+                                                        onclick="toggleSection('Imageto-base64')">
+                                                    <label class="form-check-label" for="radioDefault15">Image to
+                                                        Base64</label>
+                                                </div>
+                                            </div>
+                                            <!-- base64-to-Image -->
+                                            <div id="base64-to-Image" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Enter Base64 String</label>
+                                                            <textarea name="" id="" cols="30" rows="4"
+                                                                class="form-control toolInput"
+                                                                placeholder="Base64 String"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Imageto-base64 -->
+                                            <div id="Imageto-base64" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="upload-container" id="uploadBox">
+                                                            <img id="previewImage" class="image-preview"
+                                                                style="display: none;" />
+                                                            <div class="upload-content upload-overlay">
+                                                                <div class="upload-icon"><i
+                                                                        class="fa-solid fa-file-image"></i></div>
+                                                                <div class="upload-text">Click to upload or drag-&-drop
+                                                                </div>
+                                                                <div class="upload-subtext">Max file size: 2MB.
+                                                                    Supported files: jpg, png, webp, svg</div>
+                                                            </div>
+                                                            <input type="file" id="fileInput"
+                                                                accept=".jpg,.jpeg,.png,.webp,.svg" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- from ABI -->
+                                            <div id="from-abi" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input Data</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Input Data">
+                                                        </div>
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input ABI</label>
+                                                            <textarea name="" id="" cols="10" rows="4"
+                                                                class="form-control toolInput"
+                                                                placeholder="[{...}]"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- without ABI -->
+                                            <div id="without-abi" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group mb-sm-3 mb-2">
+                                                            <label class="form-label">Input Data</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Input Data">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Convert</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Block & Date Converter tool -->
+                    <div class="tab-pane fade" id="block-date-converter" role="tabpanel"
+                        aria-labelledby="block-date-converter-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>eBlock & Date Converter</h2>
+                                <p>
+                                    Convert between Block Number, Date & Time and Epoch Timestamp.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-xl-8">
+                                        <form action="#">
+                                            <!-- Radio -->
+                                            <div class="tools-group tools-group-2">
+                                                <label class="form-label">Choose option:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio" name="blokName"
+                                                        id="radioDefault16" value="Block & Date"
+                                                        onclick="toggleSection('bloc')">
+                                                    <label class="form-check-label" for="radioDefault16">Block &
+                                                        Date</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="blokName"
+                                                        id="radioDefault17" value="Timestamp & Date"
+                                                        onclick="toggleSection('tim')">
+                                                    <label class="form-check-label" for="radioDefault17">Timestamp &
+                                                        Date</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="tools-group tools-group-2">
+                                                <label class="form-label">Choose Conversion:</label>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-sm-3 gap-2 mb-2 mt-1 flex-wrap">
+                                                <div class="form-check base64Check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio"
+                                                        name="dateTimeTimeStop" id="radioDefault18"
+                                                        value="Date & Time to Block"
+                                                        onclick="toggleSection('date-time-block')">
+                                                    <label class="form-check-label" for="radioDefault18">Date & Time to
+                                                        Block</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck base64Check">
+                                                    <input class="form-check-input" type="radio" name="dateTimeTimeStop"
+                                                        id="radioDefault19" value="Timestamp to Block"
+                                                        onclick="toggleSection('timestamp-to-Block')">
+                                                    <label class="form-check-label" for="radioDefault19">Timestamp to
+                                                        Block</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck base64Check">
+                                                    <input class="form-check-input" type="radio" name="dateTimeTimeStop"
+                                                        id="radioDefault20" value="Block to Date & Time"
+                                                        onclick="toggleSection('block-to-date-time')">
+                                                    <label class="form-check-label" for="radioDefault20">Block to Date &
+                                                        Time</label>
+                                                </div>
+                                            </div>
+                                            <!-- date-time-block -->
+                                            <div id="date-time-block" class="content-section active">
+                                                <p class="unixEpochDesc">The current Unix epoch time (in seconds) is:
+                                                    <strong>1741319547</strong>
+                                                </p>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Date</label>
+                                                            <div class="date-picker-wrapper">
+                                                                <div class="dateIcon"><i
+                                                                        class="fa-regular fa-calendar-days"></i></div>
+                                                                <input type="text" id="epoch_date" class="date-picker"
+                                                                    placeholder="MM/DD/YYYY" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <!-- Option -->
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Hours</label>
+                                                            <select class="form-select toolInput custom-chevron"
+                                                                name="hour">
+                                                                <option selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <!-- Option -->
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Minutes</label>
+                                                            <select class="form-select toolInput custom-chevron"
+                                                                name="minutes">
+                                                                <option selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="17">17</option>
+                                                                <option value="18">18</option>
+                                                                <option value="19">19</option>
+                                                                <option value="20">20</option>
+                                                                <option value="21">21</option>
+                                                                <option value="22">22</option>
+                                                                <option value="23">23</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <!-- Option -->
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Timezone</label>
+                                                            <select class="form-select toolInput custom-chevron"
+                                                                name="Timezone">
+                                                                <option selected>UTC</option>
+                                                                <option value="1">Local Time</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- timestamp-to-Block -->
+                                            <div id="timestamp-to-Block" class="content-section">
+                                                <p class="unixEpochDesc">The current Unix epoch time (in seconds) is:
+                                                    <strong>1741319547</strong>
+                                                </p>
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Timestamp</label>
+                                                            <input type="number" class="form-control toolInput"
+                                                                placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- block-to-date-time -->
+                                            <div id="block-to-date-time" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-xl-10">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Block Number</label>
+                                                            <input type="number" name="Block-Number"
+                                                                class="form-control toolInput" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Convert</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for UTF-8 Converter tool -->
+                    <div class="tab-pane fade" id="utf8-converter" role="tabpanel" aria-labelledby="utf8-converter-tab"
+                        tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>UTF-8 Converter</h2>
+                                <p>
+                                    Convert between Hexadecimal and UTF-8 text formats.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form action="#">
+                                            <!-- Radio -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Choose Conversion:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio" name="hexUTf"
+                                                        id="radioDefault21" value="Hex to UTF-8"
+                                                        onclick="toggleSection('hex-to-utf')">
+                                                    <label class="form-check-label" for="radioDefault21">Hex to
+                                                        UTF-8</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="hexUTf"
+                                                        id="radioDefault22" value="UTF-8 to Hex"
+                                                        onclick="toggleSection('utf-to-hex')">
+                                                    <label class="form-check-label" for="radioDefault22">UTF-8 to
+                                                        Hex</label>
+                                                </div>
+                                            </div>
+                                            <!-- hex-to-utf -->
+                                            <div id="hex-to-utf" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Enter Hex string</label>
+                                                            <textarea name="hex-string" id="" cols="30" rows="4"
+                                                                class="form-control toolInput"
+                                                                placeholder="Hex string"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- utf-to-hex -->
+                                            <div id="utf-to-hex" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Enter UTF-8 String</label>
+                                                            <textarea name="UTF-8 String" id="" cols="30" rows="4"
+                                                                class="form-control toolInput"
+                                                                placeholder="Hex string"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Convert</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab pane for Method ID Converter tool -->
+                    <div class="tab-pane fade" id="method-id-converter" role="tabpanel"
+                        aria-labelledby="method-id-converter-tab" tabindex="0">
+                        <div class="toolsNavContent">
+                            <div class="toolsNavContentTitle">
+                                <h2>Method ID Converter</h2>
+                                <p>
+                                    Convert Function Name or ABI into Method ID.
+                                </p>
+                            </div>
+                            <div class="toolsNavContentCard">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form action="#">
+                                            <!-- Radio -->
+                                            <div class="tools-group">
+                                                <label class="form-label">Choose Conversion:</label>
+                                            </div>
+                                            <div
+                                                class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap mb-sm-3 mb-2 mt-1">
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" checked type="radio"
+                                                        name="methodInput" id="radioDefault23"
+                                                        value="Function to Method ID"
+                                                        onclick="toggleSection('function-to-method')">
+                                                    <label class="form-check-label" for="radioDefault23">Function to
+                                                        Method ID</label>
+                                                </div>
+                                                <div class="form-check formRadioCheck">
+                                                    <input class="form-check-input" type="radio" name="methodInput"
+                                                        id="radioDefault24" value="UTF-8 to Hex"
+                                                        onclick="toggleSection('abi-to-method')">
+                                                    <label class="form-check-label" for="radioDefault24">ABI to Method
+                                                        ID</label>
+                                                </div>
+                                            </div>
+                                            <!-- function-to-method -->
+                                            <div id="function-to-method" class="content-section active">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Function Name</label>
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="approve(address,uint256)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- abi-to-method -->
+                                            <div id="abi-to-method" class="content-section">
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <input type="text" class="form-control toolInput"
+                                                                placeholder="Contract Address (0x....)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="tools-group tools-group-2 mb-sm-3 mb-2">
+                                                            <label class="form-label">Or</label>
+                                                            <textarea name="abi-method" id="" cols="30" rows="10"
+                                                                class="form-control toolInput"
+                                                                placeholder="ABI ([...])"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolsBottomFooter">
+                                <button type="button" class="toolBtn">Convert</button>
+                                <button type="button" class="toolBtn resetBtn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // close toggle 
+        document.addEventListener('click', function (event) {
+            const asideNav = document.getElementById('asideNav');
+            const toggleBtn = document.querySelector('[data-bs-target="#asideNav"]');
+
+            const isClickInside = asideNav.contains(event.target) || toggleBtn.contains(event.target);
+
+            const isMobile = window.innerWidth < 992;
+
+            if (!isClickInside && asideNav.classList.contains('show') && isMobile) {
+                const collapseInstance = bootstrap.Collapse.getInstance(asideNav);
+                collapseInstance?.hide();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const startPicker = flatpickr("#start_date", {
+                dateFormat: "m/d/Y",
+                altInput: true,
+                altFormat: "m/d/Y",
+                onChange: function (selectedDates, dateStr) {
+                    endPicker.set("minDate", dateStr);
+                }
+            });
+
+            const endPicker = flatpickr("#end_date", {
+                dateFormat: "m/d/Y",
+                altInput: true,
+                altFormat: "m/d/Y",
+                onChange: function (selectedDates, dateStr) {
+                    startPicker.set("maxDate", dateStr);
+                }
+            });
+            const snapShotDatePicker = flatpickr("#snapShotDate", {
+                dateFormat: "m/d/Y",
+                altInput: true,
+                altFormat: "m/d/Y",
+                onChange: function (selectedDates, dateStr) {
+                    startPicker.set("maxDate", dateStr);
+                }
+            });
+            const epochDate = flatpickr("#epoch_date", {
+                dateFormat: "m/d/Y",
+                altInput: true,
+                altFormat: "m/d/Y",
+                onChange: function (selectedDates, dateStr) {
+                    startPicker.set("maxDate", dateStr);
+                }
+            });
+        });
+    </script>
+    <script>
+        // file upload
+        const uploadBox = document.getElementById('uploadBox');
+        const fileInput = document.getElementById('fileInput');
+        const previewImage = document.getElementById('previewImage');
+
+        uploadBox.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        uploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadBox.style.borderColor = '#999';
+        });
+
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.style.borderColor = '#333';
+        });
+
+        uploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            fileInput.files = e.dataTransfer.files;
+            handleFile(file);
+            uploadBox.style.borderColor = '#333';
+        });
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            handleFile(file);
+        });
+
+        function handleFile(file) {
+            const maxSize = 2 * 1024 * 1024;
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'];
+
+            if (!file) return;
+
+            if (file.size > maxSize) {
+                alert('File is too large. Max size is 2MB.');
+                return;
+            }
+
+            if (!allowedTypes.includes(file.type)) {
+                alert('Unsupported file type.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+                previewImage.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function toggleSection(sectionId) {
+            const parent = document.getElementById(sectionId).closest('form');
+            parent.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            parent.querySelector(`#${sectionId}`).classList.add('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabPanels = document.querySelectorAll(".tab-pane");
+
+            tabPanels.forEach((panel) => {
+                const radios = panel.querySelectorAll('input[name="radioDefault"]');
+                const dateContent = panel.querySelector("#date-content");
+                const blockContent = panel.querySelector("#block-content");
+                const fromTransaction = panel.querySelector("#from-transaction");
+
+                radios.forEach((radio) => {
+                    radio.addEventListener("change", function () {
+                        if (this.value === "date") {
+                            dateContent.classList.add("active");
+                            blockContent.classList.remove("active");
+                            fromTransaction.classList.remove("active");
+                        } else if (this.value === "block") {
+                            blockContent.classList.add("active");
+                            dateContent.classList.remove("active");
+                            fromTransaction.classList.add("active");
+                        }
+                    });
+                });
+            });
+        });
+
+        // Initialize tooltips
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        //     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        // });
+
+        // Copy functionality
+        // Enable all tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+
+        // Copy input value to clipboard on icon click
+        document.querySelectorAll('.copy-icon').forEach(icon => {
+            icon.addEventListener('click', function () {
+                const input = this.parentElement.querySelector('.toolInput');
+                input.select();
+                input.setSelectionRange(0, 99999); // Mobile support
+
+                navigator.clipboard.writeText(input.value).then(() => {
+                    const i = this.querySelector('i');
+                    const tooltip = bootstrap.Tooltip.getInstance(i);
+                    tooltip.setContent({ '.tooltip-inner': 'Copied!' });
+                    tooltip.show();
+
+                    setTimeout(() => {
+                        tooltip.setContent({ '.tooltip-inner': 'Copy to clipboard' });
+                    }, 1000);
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const hash = window.location.hash;
+
+            if (hash) {
+                // Optional: delay to ensure DOM is ready
+                setTimeout(() => {
+                    // Scroll to top first
+                    window.scrollTo({ top: 0, behavior: 'auto' });
+
+                    // Then activate tab
+                    const tabButton = document.querySelector(hash);
+                    if (tabButton) {
+                        new bootstrap.Tab(tabButton).show();
+                    }
+                }, 10); // Small delay helps override the hash scrolling behavior
+            }
+        });
+
+    </script>
+</body>
+
+</html>

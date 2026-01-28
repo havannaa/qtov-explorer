@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Verified Addresses</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../contractInternalTransactions.html">Contract
+                                        Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../eth2BeaconChainDeposits.html">Beacon Chain
+                                        Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../beaconChainWithdrawals.html">Beacon Chain
+                                        Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../topStatistics.html">Top Statistics <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../leaderboard.html">Leaderboard <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../tools.html#vyper-compiler-tab">Vyper Online
+                                        Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../API.html">API Plans <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="../tools.html#input-decoder-tab">Input
+                                                    Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../tools.html#csv-export-tab">CSV Export
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                    href="../tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="../gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../domainNameLookup.html">Domain Name
+                                                    Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="../tokenApprovals.html">Token Approvals
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="../accounts/signUp.html" class="loginButton">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- hero section -->
+    <div class="home-hero-section hero-margin">
+        <div class="profileHeroBanner">
+            <div class="container">
+                <div class="profileHeroBannerContent">
+                    <div>
+                        <a href="../index.html"><i class="fa-solid fa-arrow-left me-1"></i> Back Home</a>
+                        <h1>Verified Addresses</h1>
+                    </div>
+                    <a href="#">
+                        <button type="button" class="signgButton"><i
+                                class="fa-solid fa-arrow-right-from-bracket me-1"></i> Sign
+                            Out
+                        </button>
+                    </a>
+                </div>
+                <img src="../assets/images/waves-light.svg.png" alt="" class="shadowImg wavesImage">
+            </div>
+        </div>
+    </div>
+    <div class="container maintain-top">
+        <div class="profile-main-container">
+            <div class="sidebar-wrapper">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2>husaminfo</h2>
+                        <p>husaminfo60@gmail.com</p>
+                    </div>
+                    <button class="btn toggle-menu d-lg-none mt-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sideNav" aria-controls="sideNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars me-2"></i> Sidebar Menu
+                    </button>
+                </div>
+                <hr class="d-lg-block d-none">
+                <nav id="sideNav" class="collapse d-lg-block">
+                    <hr class="d-lg-none d-block">
+                    <h6 class="sideTitle">● <span class="ms-1">Account</span></h6>
+                    <a href="./accountOverview.html">
+                        <img src="../assets/images/account.svg" alt="">
+                        Account Overview
+                    </a>
+                    <a href="./accountSetting.html">
+                        <img src="../assets/images/account-setting.svg" alt="">
+                        Account Settings
+                    </a>
+                    <a href="./publicProfile.html">
+                        <img src="../assets/images/public-profile.svg" alt="">
+                        Public Profile
+                    </a>
+                    <h6 class="sideTitle mt-2">● <span class="ms-1">Lists</span></h6>
+                    <a href="./watchList.html">
+                        <img src="../assets/images/watch-list.svg" alt="">
+                        Watch List
+                    </a>
+                    <a href="./privateNameTags.html">
+                        <img src="../assets/images/tags.svg" alt="">
+                        Private Name Tags
+                    </a>
+                    <a href="./txnPrivateNotes.html">
+                        <img src="../assets/images/notes.svg" alt="">
+                        Txn Private Notes
+                    </a>
+                    <a href="./tokenIgnoreList.html">
+                        <img src="../assets/images/ignore.svg" alt="">
+                        Token Ignore List
+                    </a>
+                    <a href="./advancedFilter.html">
+                        <img src="../assets/images/advanced-filter.svg" alt="">
+                        Advanced Filter
+                    </a>
+                    <h6 class="sideTitle mt-2">● <span class="ms-1">Others</span></h6>
+                    <a href="./APIDashboard.html">
+                        <img src="../assets/images/api-dash.svg" alt="">
+                        Join Dashboard
+                    </a>
+                    <a href="./verifiedAddresses.html" class="active">
+                        <img src="../assets/images/verifyed.svg" alt="">
+                        Verified Addresses
+                    </a>
+                    <a href="./contractCustomABI.html">
+                        <img src="../assets/images/custom-aps.svg" alt="">
+                        Custom Alerts
+                    </a>
+                </nav>
+            </div>
+            <div class="profile-main">
+                <div class="profile-card">
+                    <div class="infoTitle d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-2">
+                            <h3>My Verified Addresses </h3>
+                            <span class="limitTag">1000 limit</span>
+                        </div>
+                        <button type="button" class="toolBtn">Add Address</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-item-content">
+                        <p class="infoSubTitle mb-3">
+                            The Verify Address Ownership process involves verifying the ownership of an Quantova address
+                            used to create an Quantova smart contract. This
+                            verification will be linked to an Qtov account. Once a user has claimed ownership of an
+                            address, the user will be able to update token information
+                            and address name tags without needing to sign a new message each time. Find out more about
+                            <a href="#">verify address ownership</a>.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center gap-2 mb-2">
+                            <p class="infoSubTitle c-gray">
+                                 0 address selected
+                            </p>
+                            <div class="search-box">
+                                <input class="search-input" type="text" placeholder="Type to Search">
+                                <button type="button" class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container mt-3 tokenApprovrlTable watchListTable">
+                        <table class="table mb-0">
+                            <thead class="align-middle text-nowrap pointer-events-none">
+                                <tr>
+                                    <th scope="col">
+                                        <h6>Transaction</h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            Quick Links
+                                        </h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            Verified Date
+                                        </h6>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="align-middle text-nowrap">
+                                <tr class="border-bottom-0">
+                                    <td colspan="6" class="revokeTd">
+                                        <div class="text-md-center pt-4 pb-sm-5 pb-4">
+                                            <div class="mt-sm-4 mt-1">
+                                                <span class="coinsCircle">
+                                                    <img src="../assets/images/men.svg" alt="">
+                                                </span>
+                                            </div>
+                                            <h2>You have yet to verify any address.</h2>
+                                            <p>Please try again later</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="infoBottomFooter">
+                        <div class="pagination w-100">
+                            <button id="firstPage" class="page-button" onclick="goToPage(1)" disabled>First</button>
+                            <button id="prevPage" class="page-button page-icon-button" onclick="changePage(-1)"
+                                disabled>
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <span class="page-info" id="pageInfo">Page 1 of 1</span>
+                            <button id="nextPage" class="page-button page-icon-button" onclick="changePage(1)">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                            <button id="lastPage" class="page-button active" onclick="goToPage(10000)">Last</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="../assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="../assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="../assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="../index.html">
+                            <img src="../assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="../bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="../API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="../assets/js/file.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/transactionChart.js"></script>
+    <script>
+
+        // Initialize tooltips
+        document.addEventListener("DOMContentLoaded", function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        });
+        // close toggle 
+        document.addEventListener('click', function (event) {
+            const asideNav = document.getElementById('sideNav');
+            const toggleBtn = document.querySelector('[data-bs-target="#asideNav"]');
+
+            const isClickInside = asideNav.contains(event.target) || toggleBtn.contains(event.target);
+
+            const isMobile = window.innerWidth < 992;
+
+            if (!isClickInside && asideNav.classList.contains('show') && isMobile) {
+                const collapseInstance = bootstrap.Collapse.getInstance(asideNav);
+                collapseInstance?.hide();
+            }
+        });
+        // upload profile
+        const fileInput = document.getElementById("fileInput");
+        const profileImage = document.getElementById("profileImage");
+
+        fileInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    profileImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

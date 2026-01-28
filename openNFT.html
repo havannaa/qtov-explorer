@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Open NFT</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+</head>
+
+<body>
+<!-- Header -->
+<header class="main-header">
+    <nav class="navbar navbar-expand-lg navbar-main">
+        <div class="container position-relative">
+            <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Blockchain <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                    Transactions <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="blobs.html">View Blobs
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="uncles.html">Uncles <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tokens <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                            class="c-gray">(QRC-20)</span></span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                            class="c-gray">(QRC-20)</span></span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            NFTs <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Resources <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Knowledge Base <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Developers <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                    Search
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                    Transaction
+                                    <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./API.html">API Plans <i class="bi bi-arrow-right"></i></a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">API Documentation <i
+                                        class="bi bi-arrow-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" style="position: unset;">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            More <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu moreDropdown">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="toolsServices h-100" style="background-color: #151515;">
+                                        <h1>Tools & Services</h1>
+                                        <p>Discover more of Qtov tools and services in one place.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="toolsServices">
+                                        <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                Decoder <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                Converter <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="toolsServices">
+                                        <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                        <li>
+                                            <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="toolsServices">
+                                        <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                        <li>
+                                            <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                Singnature <i class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Advanced Filter <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                    class="bi bi-arrow-right"></i></a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="navButtons">
+                    <div class="borderLine"></div>
+                    <li class="nav-item dropdown" style="list-style: none;">
+                        <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-circle-user me-1"></i>
+                            Hussam <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./profile/accountOverview.html">
+                                    Profile Info
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                    <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <div class="hero-margin">
+        <div class="container">
+            <div class="title-bar d-flex gap-2 justify-content-between align-items-center flex-row title-bar-3">
+                <div class="d-flex gap-2 align-items-center flex-wrap">
+                    <img src="./assets/images/boredapeyc_32.png.svg" alt="" class="img-fluid">
+                    <h1 class="main-title">Token</h1>
+                    <div class="d-flex align-items-center gap-2 tethCheck ms-1">
+                        <h3>BoredApeYachtClub <span class="c-gray px-1">(BAYC)</span></h3>
+                        <i class="bi bi-patch-check c-dark-blue"></i>
+                    </div>
+                </div>
+                <div class="menu-container">
+                    <div class="dropdown-wrapper">
+                        <button class="filter-dropdown filterBtn"><span class="filter-text">Buy</span> <i
+                                class="fa fa-chevron-down"></i></button>
+                        <ul class="dropdown-options">
+                            <li>Option 1</li>
+                            <li>Option 2</li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-wrapper">
+                        <button class="filter-dropdown filterBtn"><span class="filter-text">Exchange</span> <i
+                                class="fa fa-chevron-down"></i></button>
+                        <ul class="dropdown-options">
+                            <li>Crypto</li>
+                            <li>Fiat</li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-wrapper">
+                        <button class="filter-dropdown filterBtn"><span class="filter-text">Games</span> <i
+                                class="fa fa-chevron-down"></i></button>
+                        <ul class="dropdown-options">
+                            <li>Arcade</li>
+                            <li>Adventure</li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-wrapper">
+                        <button class="filter-dropdown filterBtn"><span class="filter-text">Platform</span> <i
+                                class="fa fa-chevron-down"></i></button>
+                        <ul class="dropdown-options">
+                            <li>PC</li>
+                            <li>Console</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="presentationContainer addressTransaction">
+                <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div class="ercTokensGroup">
+                        <a href="#">QRC-721</a>
+                        <a href="#">NFT <i class="bi bi-question-circle ms-1"></i></a>
+                    </div>
+                    <div class="d-flex gap-1">
+                        <div class="dropdown-wrapper filter-wrapper">
+                            <button class="filter-dropdown">
+                                <div class="d-flex align-items-center gap-1">
+                                    <i class="bi bi-globe globeIcon"></i>
+                                    <span class="filter-text">boredapeyachtclub.com</span>
+                                </div>
+                                <i class="fa fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-options" style="left: 0; width: 100%;">
+                                <li>Option 1</li>
+                                <li>Option 2</li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-wrapper filter-wrapper">
+                            <button class="filter-dropdown">
+                                <div class="d-flex align-items-center gap-1">
+                                    <i class="bi bi-list-check listIcon"></i>
+                                    <span class="filter-text"></span>
+                                </div>
+                                <i class="fa fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-options">
+                                <li>Option 1</li>
+                                <li>Option 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-6 col-md-12 mt-3">
+                        <div class="addressDetailCard">
+                            <h1>Overview</h1>
+                            <div class="eth-label-group mt-4">
+                                <p class="eth-label">Max Total Supply</p>
+                                <h6>10,000 <span class="ps-2">BAYC</span></h6>
+                            </div>
+                            <div class="eth-label-group mt-4">
+                                <p class="eth-label">Holders</p>
+                                <h6>5,386</h6>
+                            </div>
+                            <div class="eth-label-group mt-4">
+                                <p class="eth-label">Total Transfers</p>
+                                <h6>303,231 <i class="bi bi-question-circle ps-1"></i></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-12 mt-3">
+                        <div class="addressDetailCard">
+                            <h1>Market</h1>
+                            <div class="eth-label-group mt-4">
+                                <p class="eth-label">Volume (24H) <i class="bi bi-question-circle ps-1"></i></p>
+                                <h6>$0.00 <span class="c-gray ps-1"> @ 0.000000 Qtov</span></h6>
+                            </div>
+                            <div class="eth-label-group mt-3">
+                                <p class="eth-label">Min Price (24H) <i class="bi bi-question-circle ps-1"></i></p>
+                                <h6>$75,894,138,676.50</h6>
+                            </div>
+                            <div class="eth-label-group mt-4">
+                                <p class="eth-label">Max Price (24H) <i class="bi bi-question-circle ps-1"></i></p>
+                                <h6>$31,719.55 <span class="c-gray"> @ 15.150000 Qtov</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-12 mt-3">
+                        <div class="addressDetailCard">
+                            <h1>Other Info</h1>
+                            <div class="eth-label-group mt-4">
+                                <p class="eth-label">Token Contract</p>
+                                <div class="decimalsDesc transactionHash">
+                                    <div class="d-flex align-items-center gap-1 flex-wrap">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                        <a href="#" class="copyText">0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d</a>
+                                    </div>
+                                    <i class="bi bi-copy copyIcon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="d-flex justify-content-between gap-2 align-items-center mb-sm-3 mb-2 mt-lg-5 mt-sm-4 mt-3 flex-wrap">
+                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                        <ul class="nav nav-pills gap-2" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link navTAbsButton active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Transfers</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link navTAbsButton" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile" aria-selected="false">Holders
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link navTAbsButton" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact" aria-selected="false">Inventory
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link navTAbsButton" id="pills-nft-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-nft" type="button" role="tab" aria-controls="pills-nft"
+                                    aria-selected="false">
+                                    Info
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link navTAbsButton" id="pills-blob-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-blob" type="button" role="tab" aria-controls="pills-blob"
+                                    aria-selected="false">
+                                    NFT Trades
+                                </button>
+                            </li>
+                            <li class="nav-item position-relative" role="presentation">
+                                <button class="nav-link navTAbsButton" id="pills-blocks-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-blocks" type="button" role="tab" aria-controls="pills-blocks"
+                                    aria-selected="false">
+                                    Contract
+                                </button>
+                                <i class="bi bi-check-circle checkFillCircle"></i>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link navTAbsButton" id="pills-Cards-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-Cards" type="button" role="tab" aria-controls="pills-Cards"
+                                    aria-selected="false">
+                                    Cards <span class="new-filter">New</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search-box">
+                        <input class="search-input" type="text" placeholder="Type to Search">
+                        <button type="button" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <div class="moreThanTransactionHeader flex-wrap">
+                            <div class="showingRecords">
+                                <div class="foundTitle d-flex gap-1">
+                                    <img src="./assets/images/Oldest First.svg" alt="">
+                                    <h3>A total of 303,231 transactions found</h3>
+                                </div>
+                                <p>(Showing the last 10k records)</p>
+                            </div>
+                            <div class="paginationGroup flex-wrap">
+                                <button type="button" class="downloadPageBtn">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    Download Page Data
+                                </button>
+                                <button type="button" class="downloadPageBtn">
+                                    <img src="./assets/images/filter.svg" alt="">
+                                    Advanced Filter
+                                </button>
+                                <div class="pagination">
+                                    <button id="firstPage" class="page-button" onclick="goToPage(1)"
+                                        disabled>First</button>
+                                    <button id="prevPage" class="page-button page-icon-button" onclick="changePage(-1)"
+                                        disabled>
+                                        <i class="bi bi-chevron-left"></i>
+                                    </button>
+                                    <span class="page-info" id="pageInfo">Page 1 of 200</span>
+                                    <button id="nextPage" class="page-button page-icon-button" onclick="changePage(1)">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </button>
+                                    <button id="lastPage" class="page-button active"
+                                        onclick="goToPage(10000)">Last</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="table transactionTable nftOpenTable m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="min-width: 56px;">
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <i class="bi bi-question-circle questionCircle"></i>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <h6>Transaction Hash</h6>
+                                        </th>
+                                        <th>
+                                            <h6>Method <i class="bi bi-question-circle"></i></h6>
+                                        </th>
+                                        <th>
+                                            <h6>Block</h6>
+                                        </th>
+                                        <th>
+                                            <h6 class="c-sky">Age</h6>
+                                        </th>
+                                        <th>
+                                            <h6>From</h6>
+                                        </th>
+                                        <th>
+                                            <h6>To</h6>
+                                        </th>
+                                        <th>
+                                            <h6>Item</h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="tdContent">
+                                                <button type="button" class="showDescBtn">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <a href="#" class="copyText">0x947ef731942…</a>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <span class="method">Transfer From</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <a href="#">21971014</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <h5>1 hr ago</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div
+                                                    class="d-flex justify-content-between w-100 align-items-center gap-2">
+                                                    <div class="transactionHash">
+                                                        <a href="#" class="copyText">0x0a77e12b...E5b7C9c61</a>
+                                                        <i class="bi bi-copy copyIcon"></i>
+                                                    </div>
+                                                    <img src="./assets/images/arrow.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <div class="d-flex gap-1 align-items-center">
+                                                        <a href="#" class="copyText">0xc815B00B...7aab7aA09</a>
+                                                    </div>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="nftItemLogo">
+                                                    <img src="./assets/images/nft1.svg" alt="">
+                                                    <h5>#9471</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tdContent">
+                                                <button type="button" class="showDescBtn">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <a href="#" class="copyText">0xe008d9bcab…</a>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <span class="method">Buy Locked E…</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <a href="#">21971014</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <h5>1 hr ago</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div
+                                                    class="d-flex justify-content-between w-100 align-items-center gap-2">
+                                                    <div class="transactionHash">
+                                                        <a href="#" class="copyText">Blur: Blend</a>
+                                                        <i class="bi bi-copy copyIcon"></i>
+                                                    </div>
+                                                    <img src="./assets/images/arrow.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <div class="d-flex gap-1 align-items-center">
+                                                        <img src="./assets/images/ens-new.svg" alt="">
+                                                        <a href="#" class="copyText">ttony.eth</a>
+                                                    </div>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="nftItemLogo">
+                                                    <img src="./assets/images/nft1.svg" alt="">
+                                                    <h5>#4053</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tdContent">
+                                                <button type="button" class="showDescBtn">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <a href="#" class="copyText">0xe008d9bcab…</a>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <span class="method">Deposit</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <a href="#">21971014</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <h5>1 hr ago</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div
+                                                    class="d-flex justify-content-between w-100 align-items-center gap-2">
+                                                    <div class="transactionHash">
+                                                        <div class="d-flex gap-1 align-items-center">
+                                                            <img src="./assets/images/ens-new.svg" alt="">
+                                                            <a href="#" class="copyText">crypr0xi.eth</a>
+                                                        </div>
+                                                        <i class="bi bi-copy copyIcon"></i>
+                                                    </div>
+                                                    <img src="./assets/images/arrow.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <div class="d-flex gap-1 align-items-center">
+                                                        <img src="./assets/images/ens-new.svg" alt="">
+                                                        <a href="#" class="copyText">ttony.eth</a>
+                                                    </div>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="nftItemLogo">
+                                                    <img src="./assets/images/nft1.svg" alt="">
+                                                    <h5>#4053</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tdContent">
+                                                <button type="button" class="showDescBtn">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <a href="#" class="copyText">0x947ef731942…</a>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <span class="method">Transfer From</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <a href="#">21971014</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <h5>1 hr ago</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div
+                                                    class="d-flex justify-content-between w-100 align-items-center gap-2">
+                                                    <div class="transactionHash">
+                                                        <a href="#" class="copyText">0x0a77e12b...E5b7C9c61</a>
+                                                        <i class="bi bi-copy copyIcon"></i>
+                                                    </div>
+                                                    <img src="./assets/images/arrow.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <div class="d-flex gap-1 align-items-center">
+                                                        <a href="#" class="copyText">0xc815B00B...7aab7aA09</a>
+                                                    </div>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="nftItemLogo">
+                                                    <img src="./assets/images/nft1.svg" alt="">
+                                                    <h5>#9471</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tdContent">
+                                                <button type="button" class="showDescBtn">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <a href="#" class="copyText">0xe008d9bcab…</a>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <span class="method">Buy Locked E…</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <a href="#">21971014</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <h5>1 hr ago</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div
+                                                    class="d-flex justify-content-between w-100 align-items-center gap-2">
+                                                    <div class="transactionHash">
+                                                        <a href="#" class="copyText">Blur: Blend</a>
+                                                        <i class="bi bi-copy copyIcon"></i>
+                                                    </div>
+                                                    <img src="./assets/images/arrow.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <div class="d-flex gap-1 align-items-center">
+                                                        <img src="./assets/images/ens-new.svg" alt="">
+                                                        <a href="#" class="copyText">ttony.eth</a>
+                                                    </div>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="nftItemLogo">
+                                                    <img src="./assets/images/nft1.svg" alt="">
+                                                    <h5>#4053</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="tdContent">
+                                                <button type="button" class="showDescBtn">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <a href="#" class="copyText">0xe008d9bcab…</a>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <span class="method">Deposit</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <a href="#">21971014</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <h5>1 hr ago</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div
+                                                    class="d-flex justify-content-between w-100 align-items-center gap-2">
+                                                    <div class="transactionHash">
+                                                        <div class="d-flex gap-1 align-items-center">
+                                                            <img src="./assets/images/ens-new.svg" alt="">
+                                                            <a href="#" class="copyText">crypr0xi.eth</a>
+                                                        </div>
+                                                        <i class="bi bi-copy copyIcon"></i>
+                                                    </div>
+                                                    <img src="./assets/images/arrow.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="transactionHash">
+                                                    <div class="d-flex gap-1 align-items-center">
+                                                        <img src="./assets/images/ens-new.svg" alt="">
+                                                        <a href="#" class="copyText">ttony.eth</a>
+                                                    </div>
+                                                    <i class="bi bi-copy copyIcon"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="tdContent">
+                                                <div class="nftItemLogo">
+                                                    <img src="./assets/images/nft1.svg" alt="">
+                                                    <h5>#4053</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bottomPagination">
+                            <div class="showRecords">
+                                <h6>Show:</h6>
+                                <div class="dropdown-wrapper">
+                                    <button class="filter-dropdown" id="filter-toggle">
+                                        <span class="filter-text">10</span> <i class="fa fa-chevron-down"></i>
+                                    </button>
+                                    <ul class="dropdown-options" id="filter-options">
+                                        <li>20</li>
+                                        <li>50</li>
+                                    </ul>
+                                </div>
+                                <h6>Records</h6>
+                            </div>
+                            <div class="pagination">
+                                <button id="firstPage" class="page-button" onclick="goToPage(1)" disabled>First</button>
+                                <button id="prevPage" class="page-button page-icon-button" onclick="changePage(-1)"
+                                    disabled>
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <span class="page-info" id="pageInfo">Page 1 of 200</span>
+                                <button id="nextPage" class="page-button page-icon-button" onclick="changePage(1)">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                                <button id="lastPage" class="page-button active" onclick="goToPage(10000)">Last</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <!-- ----------------- -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <!-- ----------------- -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-nft" role="tabpanel" aria-labelledby="pills-nft-tab" tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <!-- ----------------- -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-blocks" role="tabpanel" aria-labelledby="pills-blocks-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <!-- ----------------- -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-blob" role="tabpanel" aria-labelledby="pills-blob-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <!-- ----------------- -->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Cards" role="tabpanel" aria-labelledby="pills-Cards-tab"
+                    tabindex="0">
+                    <div class="moreThanTransaction mt-3">
+                        <!-- ----------------- -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="csvDownload">
+                <span>[ Download: </span> <button type="button">CSV Export <i class="bi bi-download"></i></button> ]
+            </div>
+            <div class="instructionContent">
+                <img src="./assets/images/light.svg" alt="">
+                <p>A token is a representation of an on-chain or off-chain asset. The token page shows information such
+                    as price, total supply, holders, transfers and social links. Learn more about this page in our
+                    <span>Knowledge Base.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script>
+        // Copy to clipboard functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const copyIcons = document.querySelectorAll(".copyIcon");
+            copyIcons.forEach(icon => {
+                icon.addEventListener("click", function () {
+                    const parentDiv = this.closest(".transactionHash");
+                    const textElement = parentDiv.querySelector(".copyText");
+
+                    if (textElement) {
+                        const textToCopy = textElement.textContent.trim();
+                        console.log("Copying:", textToCopy); // Debug log
+
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            console.log("Copied Successfully!"); // Debug log
+
+                            this.classList.remove("bi-copy");
+                            this.classList.add("bi-check2");
+                            this.style.color = "#2583D5"; // Green color
+
+                            setTimeout(() => {
+                                this.classList.remove("bi-check2");
+                                this.classList.add("bi-copy");
+                                this.style.color = ""; // Reset color
+                            }, 2000);
+                        }).catch(err => {
+                            console.error("Copy failed", err);
+                        });
+                    } else {
+                        console.error("Text element not found!");
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

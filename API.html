@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Top Statistics</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./API.html">API Plans <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="./profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                        <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-margin">
+        <div class="container">
+            <div class="row flex-lg-row flex-column-reverse">
+                <div class="col-lg-7 mt-sm-5 mt-4">
+                    <div class="apiHeroContent">
+                        <a href="#">Qtov API</a>
+                        <h1>
+                            Access Multichain EVM Data with
+                            Qtov APIs
+                        </h1>
+                        <p>
+                            One Qtov API Key to query data from 50+ supported chain IDs.
+                        </p>
+                        <div class="apiPlansButtons">
+                            <a href="#">API Pricing Plans</a>
+                            <a href="#" class="apiDocs">API Documentation </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-sm-5 mt-4">
+                    <img src="./assets/images/api-hero.svg.svg" alt="" class="img-fluid w-100">
+                </div>
+            </div>
+            <div class="main-title-group">
+                <h2>Ready to get started?</h2>
+                <p>Select the plan that best suits you or contact us for a custom option.</p>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="plan-switcher">
+                    <button class="active-plan" onclick="togglePricing('monthly')">Monthly</button>
+                    <button onclick="togglePricing('quarterly')">Quarterly <span class="savings-tag">10%
+                            OFF</span></button>
+                    <button onclick="togglePricing('yearly')">Yearly <span class="savings-tag">13% OFF</span></button>
+                </div>
+            </div>
+            <div class="plan-grid">
+                <div class="plan-box">
+                    <div class="planPriceHeader">
+                        <h2>Free</h2>
+                        <div class="plan-cost" data-monthly="$0" data-quarterly="$0" data-yearly="$0">$0</div>
+                        <div class="plan-period">*No contribution required</div>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li>5 calls/second limit</li>
+                        <li>Up to 100,000 API calls/day</li>
+                        <li>Existing community endpoints</li>
+                        <li>Community support</li>
+                    </ul>
+                    <div class="planButtonMain">
+                        <button>Get Started Now</button>
+                    </div>
+                </div>
+                <div class="plan-box">
+                    <div class="planPriceHeader">
+                        <h2>Standard</h2>
+                        <div class="plan-cost" data-monthly="$199 /mo" data-quarterly="$179 /mo" data-yearly="$167 /mo">
+                            $199
+                            /mo</div>
+                        <div class="plan-period"></div>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li>10 calls/second limit</li>
+                        <li>Up to 200,000 API calls/day</li>
+                        <li>Existing community endpoints</li>
+                        <li>Access to API Pro endpoints</li>
+                        <li>Escalated support</li>
+                    </ul>
+                    <div class="planButtonMain">
+                        <button>Get Started Now</button>
+                    </div>
+                </div>
+                <div class="plan-box">
+                    <div class="planPriceHeader">
+                        <h2>Advanced</h2>
+                        <div class="plan-cost" data-monthly="$299 /mo" data-quarterly="$269 /mo" data-yearly="$250 /mo">
+                            $299
+                            /mo</div>
+                        <div class="plan-period"></div>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li>20 calls/second limit</li>
+                        <li>Up to 500,000 API calls/day</li>
+                        <li>Existing community endpoints</li>
+                        <li>Access to API Pro endpoints</li>
+                    </ul>
+                    <div class="planButtonMain">
+                        <button>Get Started Now</button>
+                    </div>
+                </div>
+                <div class="plan-box">
+                    <div class="planPriceHeader">
+                        <h2>Professional</h2>
+                        <div class="plan-cost" data-monthly="$399 /mo" data-quarterly="$359 /mo" data-yearly="$333 /mo">
+                            $399
+                            /mo</div>
+                        <div class="plan-period"></div>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li>30 calls/second limit</li>
+                        <li>Up to 1,000,000 API calls/day</li>
+                        <li>Existing community endpoints</li>
+                        <li>Access to API Pro endpoints</li>
+                        <li>Escalated support</li>
+                    </ul>
+                    <div class="planButtonMain">
+                        <button>Get Started Now</button>
+                    </div>
+                </div>
+                <div class="plan-box">
+                    <div class="planPriceHeader">
+                        <h2>Pro Plus</h2>
+                        <div class="plan-cost" data-monthly="$899 /mo" data-quarterly="$809 /mo" data-yearly="$749 /mo">
+                            $899
+                            /mo</div>
+                        <div class="plan-period"></div>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li>30 calls/second limit</li>
+                        <li>Up to 1,500,000 API calls/day</li>
+                        <li>Existing community endpoints</li>
+                        <li>Access to API Pro endpoints</li>
+                        <li>Access to Metadata endpoint</li>
+                        <li>Escalated support</li>
+                        <div class="disclaimer">*Limited to ONE app license</div>
+                    </ul>
+                    <div class="planButtonMain">
+                        <button>Get Started Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dedicatedPlan">
+                <div>
+                    <span>Enterprise</span>
+                    <h4>Dedicated Plan</h4>
+                    <p>Greater rate limit with SLA support. Suitable for Enterprise user that uses large scale of
+                        Quantova data.</p>
+                </div>
+                <a href="#" class="contactUsBtn">
+                    Contact Us <i class="fa-solid fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+            <div class="main-title-group">
+                <p class="c-gray">Trusted by millions</p>
+            </div>
+            <div class="coinLogSec">
+                <img src="./assets/images/coinbase.svg.svg" alt="" class="img-fluid">
+                <img src="./assets/images/coingecko-darkmode.svg.svg" alt="" class="img-fluid">
+                <img src="./assets/images/metamask-darkmode.svg.svg" alt="" class="img-fluid">
+                <img src="./assets/images/imtoken-darkmode.svg.svg" alt="" class="img-fluid">
+                <img src="./assets/images/binance.svg" alt="" class="img-fluid">
+            </div>
+            <div class="faqSection">
+                <div class="main-title-group">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="accordion accordion-flush bg-transparent mt-4" id="accordionFlushExample">
+                    <div class="accordion" id="accordionFlushExample">
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    How do I subscribe to Qtov API services?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    How do I Upgrade or Cancel an account?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                    aria-expanded="false" aria-controls="flush-collapseThree">
+                                    What is an App License?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseFour">
+                                    What are the Payment Options available?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                    aria-controls="flush-collapseFive">
+                                    What is your refund policy?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                    aria-controls="flush-collapseSix">
+                                    When will Account Activation occur?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSix" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven"
+                                    aria-expanded="false" aria-controls="flush-collapseSeven">
+                                    How does Renewal work for API Pro accounts?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseEight"
+                                    aria-expanded="false" aria-controls="flush-collapseEight">
+                                    How do I subscribe to API Pro for explorers other than Qtov?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseEight" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item accordionItem">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button accordionButton collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false"
+                                    aria-controls="flush-collapseNine">
+                                    What is Qtov API V2?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseNine" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordionBody">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio sapiente
+                                        culpa sunt, officia vero unde inventore nesciunt adipisci error consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="instructionContent mt-3">
+                    <p>
+                        Please note that this FAQ forms part of Qtov Terms of Service and it constitutes legally
+                        binding terms on the services provided by Qtov. For more
+                        information, please refer to Qtov <a href="#">API Terms of Service</a>
+                    </p>
+                </div>
+                <div class="dedicatedPlan mt-sm-5 mt-4">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="./assets/images/Background (1).svg" alt="" class="img-fluid">
+                        <div>
+                            <h4 class="m-0">API Documentation</h4>
+                            <p>Get started with Qtov documentation.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="contactUsBtn viewDoc">
+                        View Documentation <img src="./assets/images/Symbol (44).svg" alt="" class="img-fluid ms-2">
+                    </a>
+                </div>
+                <div class="main-title-group">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions on the Qtov APIs, ask them here!</p>
+                </div>
+                <div class="contactUsSection">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="tools-group mb-sm-3 mb-2">
+                                    <label class="form-label">Contact Name <span>*</span></label>
+                                    <input type="text" class="form-control toolInput" placeholder="Ex. John Doe"
+                                        required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tools-group mb-sm-3 mb-2">
+                                    <label class="form-label">Company Email Address <span>*</span></label>
+                                    <input type="email" class="form-control toolInput"
+                                        placeholder="Ex. johndoes@example.com" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tools-group mb-3">
+                            <label class="form-label">Message <span>*</span></label>
+                            <textarea name="" id="" cols="30" rows="5" class="form-control toolInput"
+                                style="resize: none;"
+                                placeholder="Please provide as much information as possible."></textarea>
+                        </div>
+                        <div class="notification">
+                            <div class="recaptchaDiv">
+                                <input type="checkbox" class="form-check-input" id="recaptcha" disabled=""
+                                    style="display: inline-block;">
+                                <div class="loader" id="loader" style="display: none;"></div>
+                                <label class="form-check-label" id="recaptchaLabel">Success!</label>
+                            </div>
+                            <div class="cloudflare-logo">
+                                <img src="./assets/images/coudflare.svg" alt="">
+                                <div class="links">
+                                    <a href="#">Privacy</a> • <a href="#">Terms</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="sendMessage">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mt-3 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+    <script>
+        function togglePricing(period) {
+            const buttons = document.querySelectorAll('.plan-switcher button');
+            buttons.forEach(btn => btn.classList.remove('active-plan'));
+            event.target.classList.add('active-plan');
+
+            const prices = document.querySelectorAll('.plan-cost');
+            prices.forEach(price => {
+                price.textContent = price.dataset[period];
+            });
+        }
+
+    </script>
+</body>
+
+</html>

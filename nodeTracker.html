@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Node Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./API.html">API Plans <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="./profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                        <!-- <div class="themeButtons">
+                        <button id="light-toggle" class="theme-btn">
+                            <i class="bi bi-brightness-high" id="sun-icon"></i>
+                        </button>
+                        <button id="dark-toggle" class="theme-btn active">
+                            <i class="bi bi-moon" id="moon-icon"></i>
+                        </button>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-margin">
+        <div class="container">
+            <div class="title-bar">
+                <h1 class="main-title">Quantova Node Tracker</h1>
+            </div>
+            <div class="instructionContent nodeTrackerTop">
+                <img src="./assets/images/light.svg" alt="">
+                <p>Node Tracker shows statistics of detected nodes running on the network. Statistics include the top 10
+                    countries with the highest number of nodes, daily total nodes and node type by clients and OS.
+                    Learn more in our
+                    <a href="#">Knowledge Base</a>.
+                </p>
+            </div>
+            <div class="row flex-xl-row flex-column-reverse">
+                <div class="col-xl-6 mt-3">
+                    <div class="nodeTrackerCard">
+                        <div class="nodeTrackerHeader">
+                            <h1>Top 10 Countries</h1>
+                            <a href="./nodes.html" class="allNodesButton">
+                                View All Nodes
+                            </a>
+                        </div>
+                        <div class="nodeTrackerCardContent">
+                            <h6>Total <strong>6,680</strong> nodes found</h6>
+                            <div class="table-container">
+                                <table class="table transactionTable nodesTable m-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center" style="min-width: 40px;">
+                                                <h6>#</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Countries</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Last 24 Hours <i class="bi bi-caret-down"></i></h6>
+                                            </th>
+                                            <th>
+                                                <h6>Last 24 Hours</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Last 7 Days</h6>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>1</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/us.svg fill.svg" alt="" class="img-fluid">
+                                                    <a href="#">United States</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>4,016 (59.34%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"> <i class="bi bi-caret-down"></i> 42.67%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"><i class="bi bi-caret-down"></i> 7.22%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>2</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/de.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">Germany</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>617 (9.12%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"> <i class="bi bi-caret-up"></i> 366.67%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"><i class="bi bi-caret-up"></i> 9.39%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>3</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/ca.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">Canada</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>218 (3.22%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"> <i class="bi bi-caret-up"></i> 200.00%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"><i class="bi bi-caret-up"></i> 17.57%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>4</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/gb.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">United Kingdom</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>187 (2.76%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"> <i class="bi bi-caret-down"></i> 96.79%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"><i class="bi bi-caret-down"></i> 30.19%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>5</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/us.svg fill.svg" alt="" class="img-fluid">
+                                                    <a href="#">United States</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>4,016 (59.34%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"> <i class="bi bi-caret-down"></i> 42.67%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"><i class="bi bi-caret-down"></i> 7.22%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>6</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/de.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">Germany</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>617 (9.12%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"> <i class="bi bi-caret-up"></i> 366.67%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"><i class="bi bi-caret-up"></i> 9.39%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>7</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/ca.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">Canada</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>218 (3.22%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"> <i class="bi bi-caret-up"></i> 200.00%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"><i class="bi bi-caret-up"></i> 17.57%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>8</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/gb.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">United Kingdom</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>187 (2.76%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"> <i class="bi bi-caret-down"></i> 96.79%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"><i class="bi bi-caret-down"></i> 30.19%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>9</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/ca.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">Canada</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>218 (3.22%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"> <i class="bi bi-caret-up"></i> 200.00%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="high-change"><i class="bi bi-caret-up"></i> 17.57%</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <h5>10</h5>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <img src="./assets/images/gb.svg.svg" alt="" class="img-fluid">
+                                                    <a href="#">United Kingdom</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <h5>187 (2.76%)</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"> <i class="bi bi-caret-down"></i> 96.79%</h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="c-red"><i class="bi bi-caret-down"></i> 30.19%</h5>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 mt-3">
+                    <div class="nodeTrackerCard">
+                        <div class="nodeTrackerHeader">
+                            <h1>Node Stats</h1>
+                        </div>
+                        <div class="nodeTrackerCardContent pt-0">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-6 mt-3">
+                                    <div class="nodeStatsCard">
+                                        <h1 class="high-change"><i class="bi bi-caret-up"></i> 71.99%</h1>
+                                        <p>Last 24 Hours</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 mt-3">
+                                    <div class="nodeStatsCard">
+                                        <h1 class="c-red"><i class="bi bi-caret-down"></i> 7.84%</h1>
+                                        <p>Last 7 Days</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 mt-3">
+                                    <div class="nodeStatsCard">
+                                        <h1 class="c-red"><i class="bi bi-caret-down"></i> 2.77%</h1>
+                                        <p>Last 30 Days</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-wrapper">
+                                <div class="watermark">
+                                    <img src="./assets/images/logo-Qtov-light.svg.svg" alt="">
+                                </div>
+                                <canvas id="nodesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="chartdiv" class="mt-3">
+                <div class="legendOut">
+                    <div class="legend-container"></div>
+                    <div class="legend-labels">
+                        <span>0</span>
+                        <span>1k</span>
+                        <span>2k</span>
+                        <span>3k</span>
+                        <span>4k</span>
+                        <span>5k</span>
+                    </div>
+                </div>
+                <!-- Zoom In / Out Buttons -->
+                <div class="zoom-controls">
+                    <button id="zoom-in">+</button>
+                    <button id="zoom-out">−</button>
+                </div>
+            </div>
+            <div class="charts-grid mt-3">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="chart-card">
+                            <h2 class="chart-title">Client</h2>
+                            <canvas id="clientChart"></canvas>
+                            <div id="clientLegend" class="custom-legend"></div>
+                            <div class="legend-nav" id="clientNav"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-card">
+                            <h2 class="chart-title">Client Type</h2>
+                            <canvas id="clientTypeChart"></canvas>
+                            <div id="clientTypeLegend" class="custom-legend"></div>
+                            <div class="legend-nav" id="clientTypeNav"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-card">
+                            <h2 class="chart-title">OS</h2>
+                            <canvas id="osChart"></canvas>
+                            <div id="osLegend" class="custom-legend"></div>
+                            <div class="legend-nav" id="osNav"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <!-- Chart.js CDN -->
+    <!-- amCharts -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <script>
+        const chartColors = [
+            "#434348", "#90ED7D", "#91E8E1", "#76b7b2", "#F15C80", "#7CB5EC",
+            "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab", "#1f77b4", "#aec7e8"
+        ];
+
+        const datasets = {
+            client: {
+                labels: ["/linux-amd64", "/undefined", "aethx/v0.1.0-stable-c243e19e", "alvey/v0.1.0-stable-1369a56d"],
+                data: [40, 30, 20, 10, 5, 4, 3]
+            },
+            clientType: {
+                labels: ["6.0.3", "dotnet8.0.1", "dotnet8.0.10", "actix/1.0.0", "dotnet8.0.12"],
+                data: [30, 25, 20, 15, 10, 5, 4, 3]
+            },
+            os: {
+                labels: ["darwin-amd64", "darwin-arm64", "freebsd-amd64", "linux"],
+                data: [50, 25, 15, 10, 5, 4, 3]
+            }
+        };
+
+        const maxItems = 10;
+
+        function createChart(canvasId, legendId, navId, rawData, type) {
+            const ctx = document.getElementById(canvasId);
+            const chart = new Chart(ctx, {
+                type: type,
+                data: {
+                    labels: rawData.labels,
+                    datasets: [{
+                        data: rawData.data,
+                        backgroundColor: chartColors,
+                        borderColor: "#FFFFFF",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    cutout: type === 'doughnut' ? '30%' : undefined,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            let page = 0;
+
+            function renderLegend() {
+                const legend = document.getElementById(legendId);
+                const nav = document.getElementById(navId);
+                legend.innerHTML = '';
+
+                const start = page * maxItems;
+                const end = start + maxItems;
+
+                rawData.labels.slice(start, end).forEach((label, i) => {
+                    const trueIndex = start + i;
+                    const item = document.createElement("div");
+                    item.className = "legend-item";
+                    item.innerHTML = `
+            <div class="legend-label">
+              <div class="legend-color" style="background-color: ${chartColors[trueIndex % chartColors.length]}"></div>
+              <span>${label}</span>
+            </div>
+          `;
+                    legend.appendChild(item);
+                });
+
+                // Navigation controls
+                nav.innerHTML = `
+          <span style="color:lightgray;">&#9650;</span>
+          <span>${page + 1}/${Math.ceil(rawData.labels.length / maxItems)}</span>
+          <span style="color:blue;" onclick="nextPage('${legendId}', '${navId}', ${maxItems}, '${canvasId}')">&#9660;</span>
+        `;
+            }
+
+            window[`nextPage`] = function (legendId, navId, maxItems, canvasId) {
+                const dataSetKey = canvasId.replace('Chart', '');
+                const totalPages = Math.ceil(datasets[dataSetKey].labels.length / maxItems);
+                page = (page + 1) % totalPages;
+                renderLegend();
+            };
+
+            renderLegend();
+        }
+
+        createChart('clientChart', 'clientLegend', 'clientNav', datasets.client, 'pie');
+        createChart('clientTypeChart', 'clientTypeLegend', 'clientTypeNav', datasets.clientType, 'doughnut');
+        createChart('osChart', 'osLegend', 'osNav', datasets.os, 'doughnut');
+
+
+        am5.ready(function () {
+            var root = am5.Root.new("chartdiv");
+
+            // Create chart
+            var chart = root.container.children.push(am5map.MapChart.new(root, {
+                panX: "rotateX",
+                panY: "rotateY",
+                projection: am5map.geoMercator()
+            }));
+
+            // Zooming capability
+            chart.set("wheelY", "zoom");
+            chart.set("maxZoomLevel", 64);
+
+            // Create polygon series
+            var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
+                geoJSON: am5geodata_worldLow,
+                exclude: ["AQ"],
+                valueField: "value"
+            }));
+
+            polygonSeries.mapPolygons.template.setAll({
+                tooltipText: "{name}: {value}",
+                interactive: true
+            });
+
+            polygonSeries.data.setAll([
+                { id: "US", value: 5000 },
+                { id: "CA", value: 3000 },
+                { id: "MX", value: 2000 },
+                { id: "BR", value: 1800 },
+                { id: "DE", value: 700 },
+                { id: "IN", value: 400 },
+                { id: "AU", value: 150 }
+            ]);
+
+            // Heat rules
+            polygonSeries.set("heatRules", [{
+                target: polygonSeries.mapPolygons.template,
+                dataField: "value",
+                min: am5.color(0xeeeeee),
+                max: am5.color(0x0057d9),
+                key: "fill"
+            }]);
+
+            // Zoom buttons
+            document.getElementById("zoom-in").addEventListener("click", () => {
+                chart.zoomIn();
+            });
+
+            document.getElementById("zoom-out").addEventListener("click", () => {
+                chart.zoomOut();
+            });
+        });
+        const ctx = document.getElementById('nodesChart').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(91,155,213,0.5)');
+        gradient.addColorStop(1, 'rgba(0,0,0,0.8)');
+
+        const data = {
+            labels: ['Feb 3', 'Feb 6', 'Feb 9', 'Feb 12', 'Feb 15', 'Feb 18', 'Feb 21', 'Feb 24', 'Feb 27'],
+            datasets: [{
+                label: 'Total Nodes',
+                data: [6400, 6000, 6200, 6300, 6100, 5700, 6000, 3000, 6800],
+                fill: true,
+                backgroundColor: gradient,
+                borderColor: '#7bb0ff',
+                borderWidth: 2,
+                tension: 0.3,
+                pointRadius: 0
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 7500,
+                        title: {
+                            display: true,
+                            text: 'Total Nodes',
+                            color: '#CCCCCC',
+                            font: {
+                                size: 12,
+                                weight: '400',
+                                family: 'Inter'
+                            }
+                        },
+                        ticks: {
+                            color: '#888888',
+                            font: {
+                                size: 11,
+                                family: 'Inter'
+                            },
+                            callback: function (value) {
+                                return value === 0 ? '0' : (value / 1000).toFixed(1) + 'k';
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)',
+                            drawTicks: false
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#888888',
+                            font: {
+                                size: 11,
+                                family: 'Inter'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.05)',
+                            drawTicks: false
+                        },
+                        grid: {
+                            display: false // ❌ remove X grid lines
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(ctx, config);
+    </script>
+</body>
+
+</html>

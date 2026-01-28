@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qtov - Bug Bounty</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font-awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-main">
+            <div class="container position-relative">
+                <div class="main-logo-div">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/images/main-logo.svg" alt="">
+                    </a>
+                    <h5><span>QTOV</span>scan</h5>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link navLink activeLink" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Blockchain <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="transactions.html">Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pendingTransactions.html">Pending Transactions <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractInternalTransactions.html">Contract Internal
+                                        Transactions <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="eth2BeaconChainDeposits.html">Beacon Chain Deposits
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="beaconChainWithdrawals.html">Beacon Chain Withdrawals
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blobs.html">View Blobs
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="accountAbstraction.html">Account Abstraction
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="blockDetail.html">Block Detail <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="forkedBlocks.html">Forked Blocks <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="transactionDetails.html">Transactions Details <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="uncles.html">Uncles <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="topAccounts.html">TOP ACCOUNTS <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verified Contracts <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tokens <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topTokens.html"><span>Top Tokens <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tokenTransfers.html"><span>Top Transfers <span
+                                                class="c-gray">(QRC-20)</span></span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                NFTs <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="topNFTs.html">Top NFTs <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTopMints.html">Top Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTrades.html">Latest Trades <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftTransfers.html">Latest Transfers <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="nftLatestMints.html">Latest Mints <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Resources <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="chartsStats.html">Charts And Stats <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./topStatistics.html">Top Statistics <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./leaderboard.html">Leaderboard <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./directory.html">Directory <i
+                                            class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Newsletter <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Knowledge Base <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Developers <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="codeReader.html">Code Reader <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="verifiedContracts.html">Verify Contract <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#contract-search-tab">Similar Contracts
+                                        Search
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="smartContractSearch.html">Smart Contract Search <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="contractDiffChecker.html">Contract Diff Checker
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#vyper-compiler-tab">Vyper Online Compiler
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#bytecode-opcode-tab">Bytecode to Opcode
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="tools.html#broadcast-transaction-tab">Broadcast
+                                        Transaction
+                                        <i class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./API.html">API Plans <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">API Documentation <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown" style="position: unset;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu moreDropdown">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="toolsServices h-100" style="background-color: #151515;">
+                                            <h1>Tools & Services</h1>
+                                            <p>Discover more of Qtov tools and services in one place.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Tools & Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#input-decoder-tab">Input Data
+                                                    Decoder <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#unit-converter-tab">Unit
+                                                    Converter <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#csv-export-tab">CSV Export <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="tools.html#account-balance-tab">Account
+                                                    Balance Checker <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Explore</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="gasTracker.html">Gas Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="DEXTracker.html">Dex Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="nodeTracker.html">Node Tracker <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="labelWordCloud.html">Label Cloud <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="domainNameLookup.html">Domain Name Lookup
+                                                    <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4">
+                                        <div class="toolsServices">
+                                            <h1 class="mb-2 ms-sm-2 ms-0">Services</h1>
+                                            <li>
+                                                <a class="dropdown-item" href="tokenApprovals.html">Token Approvals <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="verifiedSignatures.html">Verified
+                                                    Singnature <i class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Input Data Messages (IDM) <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Advanced Filter <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blockscan Chat <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="navButtons">
+                        <div class="borderLine"></div>
+                        <li class="nav-item dropdown" style="list-style: none;">
+                            <a class="nav-link navLink dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-circle-user me-1"></i>
+                                Hussam <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="./profile/accountOverview.html">
+                                        Profile Info
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a href="./accounts/signUp.html" class="loginButton">Sign in</a>
+                        <!-- <div class="themeButtons">
+                            <button id="light-toggle" class="theme-btn">
+                                <i class="bi bi-brightness-high" id="sun-icon"></i>
+                            </button>
+                            <button id="dark-toggle" class="theme-btn active">
+                                <i class="bi bi-moon" id="moon-icon"></i>
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- hero section -->
+    <div class="hero-margin">
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="bugBountyCard">
+                        <!-- Header -->
+                        <div class="position-relative overflow-hidden">
+                            <div class="bg-dark bugTitle">
+                                <h1>
+                                    Bug Bounty Program
+                                </h1>
+                            </div>
+
+                            <figure class="d-print-none position-absolute start-0 end-0" style="bottom: -2rem;">
+                                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                    viewBox="0 0 1920 100.1" width="100%" height="32">
+                                    <path class="fill-white" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+                                </svg>
+                            </figure>
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Content -->
+                        <div class="bugBountyCardBody">
+                            <ol class="list-xs-space ps-4">
+                                <li class="mb-0 guideLineLI">
+                                    <h3 class="h6">Guidelines</h3>
+                                    <p>We ask that all researchers:</p>
+                                    <ul>
+                                        <li>Make every effort to avoid privacy violations, degradation of user
+                                            experience, disruption to production systems, and destruction of data
+                                            during security testing
+                                        </li>
+                                        <li>Use the identified communication channels to report vulnerability
+                                            information to us
+                                        </li>
+                                        <li>Report vulnerabilities as soon as you discover it, but keep it
+                                            confidential between yourself and Qtov until we’ve resolve the
+                                            issue
+                                        </li>
+                                        <li>Provide us with at least 7 working days to investigate the issue and
+                                            revert back to you
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="mb-4 guideLineLI">
+                                    <h3 class="h6">If you are the first to report the issue, and we make a code or
+                                        configuration change based on the issue, we commit to:</h3>
+                                    <ul>
+                                        <li>
+                                            Recognize your contribution on Qtov.io (list below for the last 50
+                                            contributors)
+                                        </li>
+                                        <li>
+                                            Reward you with a bounty (up to a maximum of $2500 paid out per month):
+                                            <ol class="dashed my-2">
+                                                <li>
+                                                    $1000-$3000 in crypto equivalent if you identified a
+                                                    vulnerability that presented a critical risk *
+                                                </li>
+                                                <li>
+                                                    $500 in crypto equivalent if you identified a vulnerability that
+                                                    presented a high risk *
+                                                </li>
+                                                <li>
+                                                    $250 in crypto equivalent if you identified a vulnerability that
+                                                    presented a moderate risk *
+                                                </li>
+                                                <li>
+                                                    $0 in crypto equivalent if you identified a vulnerability that
+                                                    presented a low risk *
+                                                </li>
+                                                <li>
+                                                    Entry in Hall of Fame Only, If there was in fact no or low risk
+                                                    vulnerability, but we still made a code or configuration change
+                                                    nonetheless
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                    <i>Researcher will provide us with a wallet address based on the reported explorer
+                                        for
+                                        the payout within 7
+                                        days after we have resolved the issue.</i><br>
+                                    <i>* vulnerability level will be determined at our discretion</i><br>
+                                    <i>** in the event the vulnerabilty exists in multiple explorers, only the reported
+                                        explorer is entitled to the rewards</i><br>
+                                </li>
+
+                                <li class="mb-4 guideLineLI">
+                                    <h3 class="h6">Scope</h3>
+                                    Qtov (Qtov.io) and explorers under EaaS (<a
+                                        href="/eaas">https://Qtov.io/eaas</a>)<br>
+                                    <p>We are interested in the following vulnerabilities:</p>
+                                    <ul>
+                                        <li>
+                                            Business logic issues
+                                        </li>
+                                        <li>
+                                            Remote code execution (RCE)
+                                        </li>
+                                        <li>
+                                            Database vulnerability, SQLi
+                                        </li>
+                                        <li>
+                                            File inclusions (Local &amp; Remote)
+                                        </li>
+                                        <li>
+                                            Access Control Issues (IDOR, Privilege Escalation, etc)
+                                        </li>
+                                        <li>
+                                            Leakage of sensitive information
+                                        </li>
+                                        <li>
+                                            Server-Side Request Forgery (SSRF)
+                                        </li>
+                                        <li>
+                                            Other vulnerability with a clear potential loss
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="mb-4 guideLineLI">
+                                    <h3 class="h6">Out of scope</h3>
+                                    <p>Vulnerabilities found in out of scope resources are unlikely to be rewarded
+                                        unless they present a serious business risk (at our sole discretion). In
+                                        general, the following vulnerabilities do not correspond to the severity
+                                        threshold</p>
+                                    <ul>
+                                        <li>
+                                            Visual typos, spelling mistakes, etc
+                                        </li>
+                                        <li>
+                                            Findings derived primarily from social engineering (e.g. phishing, etc)
+                                        </li>
+                                        <li>
+                                            Findings from applications or systems not listed in the ‘Scope’ section
+                                        </li>
+                                        <li>
+                                            UI/UX bugs, Data entry errors, spelling mistakes, typos, etc
+                                        </li>
+                                        <li>
+                                            Network level Denial of Service (DoS/DDoS) vulnerabilities
+                                        </li>
+                                        <li>
+                                            Certificates/TLS/SSL related issues
+                                        </li>
+                                        <li>
+                                            DNS issues (i.e. MX records, SPF records, etc.)
+                                        </li>
+                                        <li>
+                                            Server configuration issues (i.e., open ports, TLS, etc.)
+                                        </li>
+                                        <li>
+                                            Spam or Social Engineering techniques
+                                        </li>
+                                        <li>
+                                            Security bugs in third-party applications or services
+                                        </li>
+                                        <li>
+                                            XSS Exploits that do not pose a security risk to 'other' users
+                                            (Self-XSS)
+                                        </li>
+                                        <li>
+                                            Login/Logout CSRF-XSS
+                                        </li>
+                                        <li>
+                                            https/ssl or server-info disclosure related issues
+                                        </li>
+                                        <li>
+                                            https Mixed Content Scripts
+                                        </li>
+                                        <li>
+                                            Brute Force attacks
+                                        </li>
+                                        <li>
+                                            Best practices concerns
+                                        </li>
+                                        <li>
+                                            Recently (less than 30 days) disclosed 0day vulnerabilities
+                                        </li>
+                                        <li>
+                                            Username/email enumeration via Login/Forgot Password Page error messages
+                                        </li>
+                                        <li>
+                                            Missing HTTP security headers
+                                        </li>
+                                        <li>
+                                            Weak password policy
+                                        </li>
+                                        <li>
+                                            HTML injection
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="mb-4 guideLineLI">
+                                    <h3 class="h6">How to Report a Security Vulnerability</h3>
+                                    <ul>
+                                        <li>
+                                            Description of the location and potential impact of the vulnerability
+                                        </li>
+                                        <li>
+                                            A detailed description of the steps required to reproduce the
+                                            vulnerability (POC scripts, screenshots, and compressed screen captures
+                                            are all helpful to us)
+                                        </li>
+                                        <li>
+                                            Your name/handle and a link for recognition in our Hall of
+                                            Fame (twitter, reddit, facebook, hackerone, etc)
+                                        </li>
+                                        <li>
+                                            List down the affected explorer(s)
+                                        </li>
+                                        <li>
+                                            Email us at <a href="mailto:info@Qtov.io?subject=BugBounty">[Bug
+                                                Bounty Report]</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <hr class="mb-4 guideLineLI">
+                            <h3 class="h6">HALL OF FAME</h3>
+                            <p>Special thanks to the following researchers for helping us make Qtov and other
+                                explorers
+                                a better
+                                place</p>
+
+                            <ul class="dashed">
+                                <li>
+                                    Yushi - <a rel="nofollow noopener" href="https://x.com/abmushi"
+                                        target="_blank">https://x.com/abmushi</a>
+                                </li>
+                                <li>
+                                    Jeff McDonald - <a rel="nofollow noopener" href="https://github.com/jabo38"
+                                        target="_blank">https://github.com/jabo38</a>
+                                </li>
+                                <li>
+                                    Henrique Scocco - <a rel="nofollow noopener"
+                                        href="https://www.linkedin.com/in/henrique-scocco-030618171/"
+                                        target="_blank">https://www.linkedin.com/in/henrique-scocco-030618171/</a>
+                                </li>
+                                <li>
+                                    SamCzun - <a rel="nofollow noopener" href="https://twitter.com/samczsun"
+                                        target="_blank">https://twitter.com/samczsun</a>
+                                </li>
+                                <li>
+                                    Martin Abbatemarco - <a rel="nofollow noopener" href="https://hackingmood.com"
+                                        target="_blank">https://hackingmood.com</a>
+                                </li>
+                                <li>
+                                    Andrew Curtin - <a rel="nofollow noopener" href="https://www.twitter.com/adcurtin"
+                                        target="_blank">https://www.twitter.com/adcurtin</a>
+                                </li>
+                                <li>
+                                    Shivam Kamboj Dattana - <a rel="nofollow noopener"
+                                        href="https://www.twitter.com/Sechunt3r"
+                                        target="_blank">https://www.twitter.com/Sechunt3r</a>
+                                </li>
+                                <li>
+                                    David Fiala - <a rel="nofollow noopener" href="https://www.fiala.me/"
+                                        target="_blank">https://www.fiala.me/</a>
+                                </li>
+                                <li>
+                                    Raz0r of Positive.com
+                                </li>
+                                <li>
+                                    Yaroslav Babin - <a rel="nofollow noopener" href="https://positive.com"
+                                        target="_blank">https://positive.com</a>
+                                </li>
+                                <li>
+                                    Taha Smily - <a rel="nofollow noopener" href="https://twitter.com/TahakhanTaha"
+                                        target="_blank">https://twitter.com/TahakhanTaha</a>
+                                </li>
+                                <li>
+                                    Ahsankhan
+                                </li>
+                                <li>
+                                    Sai Naik - <a rel="nofollow noopener" href="http://hackingmonks.net"
+                                        target="_blank">http://hackingmonks.net</a>
+                                </li>
+                                <li>
+                                    Anas Roubi
+                                </li>
+                                <li>
+                                    Sumit Sahoo - <a rel="nofollow noopener" href="https://www.sumitsahoo.com/"
+                                        target="_blank">https://www.sumitsahoo.com/</a>
+                                </li>
+                                <li>
+                                    Swaroop Yermalkar - @swaroopsy
+                                </li>
+                                <li>
+                                    Mohd Aqeel Ahmed (Ciph3r00t) - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/ciph3r00t"
+                                        target="_blank">https://www.facebook.com/ciph3r00t</a>
+                                </li>
+                                <li>
+                                    Muhamad Zeeshan - <a rel="nofollow noopener" href="https://fb.com/zeeshan.1338"
+                                        target="_blank">fb.com/zeeshan.1338</a>
+                                </li>
+                                <li>
+                                    Smit Gajra
+                                </li>
+                                <li>
+                                    Shawar Khan - <a rel="nofollow noopener" href="https://shawarkhan.com"
+                                        target="_blank">https://shawarkhan.com</a>
+                                </li>
+                                <li>
+                                    Taimoor Abid - <a rel="nofollow noopener" href="https://www.facebook.com/T4YM.H4X0R"
+                                        target="_blank">https://www.facebook.com/T4YM.H4X0R</a>
+                                </li>
+                                <li>
+                                    Cristian Joseph D. Legacion - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/cj.legacion10"
+                                        target="_blank">https://www.facebook.com/cj.legacion10</a>
+                                </li>
+                                <li>
+                                    Muhammad Zeeshan - <a rel="nofollow noopener" href="https://hackerone.com/zee_shan"
+                                        target="_blank">https://hackerone.com/zee_shan</a>
+                                </li>
+                                <li>
+                                    Tayyab Qadir - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/tqMr.EditOr"
+                                        target="_blank">https://www.facebook.com/tqMr.EditOr</a>
+                                </li>
+                                <li>
+                                    Arbin Godar - <a rel="nofollow noopener" href="http://www.arbingodar.com"
+                                        target="_blank">www.arbingodar.com</a>
+                                </li>
+                                <li>
+                                    Nirmal Thapa - <a rel="nofollow noopener" href="https://twitter.com/nirmal_4n_"
+                                        target="_blank">https://twitter.com/nirmal_4n_</a>
+                                </li>
+                                <li>
+                                    Sami Drif - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/SaMi.Chichirovo"
+                                        target="_blank">https://www.facebook.com/SaMi.Chichirovo</a>
+                                </li>
+                                <li>
+                                    Hasan Bilen - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/profile.php?id=1818527281"
+                                        target="_blank">https://www.facebook.com/profile.php?id=1818527281</a>
+                                </li>
+                                <li>
+                                    Vrde - <a rel="nofollow noopener" href="https://twitter.com/vrde"
+                                        target="_blank">https://twitter.com/vrde</a>
+                                </li>
+                                <li>
+                                    Roman Storm - <a rel="nofollow noopener" href="https://twitter.com/rstormsf"
+                                        target="_blank">https://twitter.com/rstormsf</a>
+                                </li>
+                                <li>
+                                    Mehedi Hasan - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/polapaine.1337"
+                                        target="_blank">https://www.facebook.com/polapaine.1337</a>
+                                </li>
+                                <li>
+                                    Ngoc Chanh (J2TeaM) - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/100002460766649"
+                                        target="_blank">https://www.facebook.com/100002460766649</a>
+                                </li>
+                                <li>
+                                    Hasan Khan - <a rel="nofollow noopener"
+                                        href="https://www.facebook.com/profile.php?id=100028535957291"
+                                        target="_blank">https://www.facebook.com/profile.php?id=100028535957291</a>
+                                </li>
+                                <li>
+                                    Khan Janny - <a rel="nofollow noopener" href="https://twitter.com/reboot_ex"
+                                        target="_blank">https://twitter.com/reboot_ex</a>
+                                </li>
+                                <li>
+                                    Joey Santoro - <a rel="nofollow noopener" href="https://twitter.com/joey__santoro"
+                                        target="_blank">https://twitter.com/joey__santoro</a>
+                                </li>
+                                <li>
+                                    Kelvin Fitcher - <a rel="nofollow noopener" href="https://twitter.com/kelvinfichter"
+                                        target="_blank">https://twitter.com/kelvinfichter</a>
+                                </li>
+                                <li>
+                                    Dominik Opyd - <a rel="nofollow noopener" href="https://twitter.com/ririenei"
+                                        target="_blank">https://twitter.com/ririenei</a>
+                                </li>
+                                <li>
+                                    Samuel Curry - <a rel="nofollow noopener" href="https://twitter.com/PalisadeLLC"
+                                        target="_blank">https://twitter.com/PalisadeLLC</a>
+                                </li>
+                                <li>
+                                    Arseniy Reutov - <a rel="nofollow noopener" href="https://twitter.com/theRaz0r"
+                                        target="_blank">https://twitter.com/theRaz0r</a>
+                                </li>
+                                <li>
+                                    Gary Jones - <a rel="nofollow noopener" href="https://github.com/piratemoo"
+                                        target="_blank">https://github.com/piratemoo</a>
+                                </li>
+                                <li>
+                                    Shifty0g - <a rel="nofollow noopener" href="https://twitter.com/shifty0g"
+                                        target="_blank">https://twitter.com/shifty0g</a>
+                                </li>
+                                <li>
+                                    Ehsan Montahaei - <a rel="nofollow noopener" href="https://twitter.com/IAmS4n"
+                                        target="_blank">https://twitter.com/IAmS4n</a>
+                                </li>
+                                <li>
+                                    Rene - <a rel="nofollow noopener" href="https://twitter.com/renniepak"
+                                        target="_blank">https://twitter.com/renniepak</a>
+                                </li>
+                                <li>
+                                    Alexandru - <a rel="nofollow noopener" href="https://4websecurity.com"
+                                        target="_blank">https://4websecurity.com</a>
+                                </li>
+                                <li>
+                                    Nico Escalante
+                                </li>
+                                <li>
+                                    Dylan Butler - <a rel="nofollow noopener" href="https://twitter.com/blankey1337"
+                                        target="_blank">https://twitter.com/blankey1337</a>
+                                </li>
+                                <li>
+                                    Sudip Roy - <a rel="nofollow noopener" href="https://twitter.com/0xsudip"
+                                        target="_blank">https://twitter.com/0xsudip</a>
+                                </li>
+                                <li>
+                                    lcfr.eth - <a rel="nofollow noopener" href="https://twitter.com/lcfr_eth"
+                                        target="_blank">https://twitter.com/lcfr_eth</a>
+                                </li>
+                                <li>
+                                    Matan Berson - <a rel="nofollow noopener" href="https://hackerone.com/matanber"
+                                        target="_blank">https://hackerone.com/matanber</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <!-- End Content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top-bar">
+                <div class="socialLinkGroup">
+                    <a href="#">
+                        <img src="./assets/images/telegram.svg" alt="" class="icon1">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/medium.svg" alt="" class="icon2">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/facebook.svg" alt="" class="icon3">
+                    </a>
+                    <a href="#">
+                        <img src="./assets/images/reddit.svg" alt="" class="icon4">
+                    </a>
+                </div>
+                <button type="button" class="backToTopBtn">
+                    <img src="./assets/images/topArrow.svg" alt="">
+                    Back to Top
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-8 mt-sm-4 mt-3">
+                    <div class="footerDesc">
+                        <a href="./index.html">
+                            <img src="./assets/images/main-logo.svg" alt="">
+                        </a>
+                        <div>
+                            <h2>Powered by QUANTOVA</h2>
+                            <p>
+                                QTOVScan is a Block Explorer and Analytics Platform for Quantova, a decentralized smart
+                                contracts platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 mt-4">
+                    <div class="footerLink">
+                        <h2>Company</h2>
+                        <a href="#">About Us</a>
+                        <a href="#">Brand Assets</a>
+                        <a href="#">Contact Us</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Careers</a> <span>We're Hiring!</span>
+                        </div>
+                        <a href="#">Terms & Privacy</a>
+                        <a href="./bugBounty.html">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Community</h2>
+                        <a href="#"> API Documentation</a>
+                        <a href="#">Knowledge Base</a>
+                        <a href="#">Network Status</a>
+                        <a href="#">Newsletters</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+                    <div class="footerLink">
+                        <h2>Products & Services</h2>
+                        <a href="#">Advertise</a>
+                        <a href="#">Explorer as a Service (EaaS)</a>
+                        <a href="./API.html">API Plans</a>
+                        <a href="#">Priority Support</a>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="mt-0">Blockscan Chat </a> <i class="bi bi-box-arrow-up-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>Qtov © 2025 (F1)</p>
+                <div class="donationPerson">
+                    <p>Donations:</p>
+                    <a href="#">0x71c765...d8976f</a>
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript files -->
+    <script src="./assets/js/file.js"></script>
+    <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/transactionChart.js"></script>
+</body>
+
+</html>
